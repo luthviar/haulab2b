@@ -3,41 +3,6 @@
 
 @section('content')
 
-<header>
-    <nav class="navbar navbar-expand-md navbar-default fixed-top bg-light">
-        <a class="navbar-brand text-center" href="#">
-            <img src="{{ URL::asset('img/favicon.png') }}" alt="logo" width="70%" height="100%">
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarCollapse">
-
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">My Carts</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
-                </li>
-                {{--<li class="nav-item">--}}
-                    {{--<a class="nav-link disabled" href="#">Disabled</a>--}}
-                {{--</li>--}}
-            </ul>
-            <form class="form-inline mt-2 mt-md-0">
-                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-            </form>
-        </div>
-    </nav>
-</header>
-
 <main role="main">
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -48,32 +13,34 @@
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="first-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+                <img class="first-slide slider-opacity" src="{{ URL::asset('img/sliders/olshop3.jpg') }}" alt="First slide" width="100%" height="100%">
                 <div class="container">
-                    <div class="carousel-caption text-left">
-                        <h1>Example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                    <div class="carousel-caption text-left bg-text">
+                        <h1>Pesan mainan sekarang mudah!</h1>
+                        <p>Haula Toys saat ini telah menerapkan teknologi website untuk para customer dari instansi manapun sehingga dapat mudah memesan dalam jumlah apapun dan kebutuhan apapun.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign Up</a></p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="second-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+                <img class="second-slide slider-opacity" src="{{ URL::asset('img/sliders/1.jpg') }}" alt="Second slide">
                 <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Learn more</a></p>
+                    <div class="carousel-caption bg-text">
+                        <h1>Pilih mainan edukatif Anda di sini!</h1>
+                        <p>Haula Toys menerima pesanan mainan edukatif untuk instansi Anda dalam jumlah besar. <br/>
+                            Kami dapat membuatkan sesuai kebutuhan Anda atau tinggal memilih di sini.
+                        </p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Lihat Produk</a></p>
                     </div>
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="third-slide" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+                <img class="third-slide slider-opacity" src="{{ URL::asset('img/sliders/2.jpg') }}" alt="Third slide">
                 <div class="container">
-                    <div class="carousel-caption text-right">
-                        <h1>One more for good measure.</h1>
-                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Browse gallery</a></p>
+                    <div class="carousel-caption text-right bg-text">
+                        <h1>Ajukan kebutuhan Anda di sini!</h1>
+                        <p>Haula Toys menerima apapun kebutuhan Anda untuk alat pendukung pendidikan anak. Beritahu kami melalui website ini dan kami akan melayaninya.</p>
+                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Hubungi Haula Toys</a></p>
                     </div>
                 </div>
             </div>
@@ -95,27 +62,80 @@
 
     <div class="container marketing">
 
-        <!-- Three columns of text below the carousel -->
         <div class="row">
-            <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">
-                <h2>Heading</h2>
-                <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-                <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
+            <div class="card-group">
+                <div class="card text-white bg-primary">
+                    {{--<img class="card-img-top" src=".../100px180/" alt="Card image cap">--}}
+                    <div class="card-body">
+                        <h5 class="card-title">100% Buatan Lokal</h5>
+                        <p class="card-text">Kami yakin produk mainan edukasi lokal
+                            dapat bersaing secara global dari
+                            segi kualitas maupun harga.</p>
+                        {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
+                    </div>
+                </div>
+                <div class="card text-white bg-success">
+                    {{--<img class="card-img-top" src=".../100px180/" alt="Card image cap">--}}
+                    <div class="card-body">
+                        <h5 class="card-title">100% Original</h5>
+                        <p class="card-text">Kami menjamin produk yang terdaftar
+                            adalah 100% original buatan produsen
+                            mainan lokal di seluruh Indonesia.</p>
+                        {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
+                    </div>
+                </div>
+                <div class="card text-white bg-info">
+                    {{--<img class="card-img-top" src=".../100px180/" alt="Card image cap">--}}
+                    <div class="card-body">
+                        <h5 class="card-title">Respon cepat</h5>
+                        <p class="card-text">Kami akan mengedepankan
+                            kebutuhan dan kepentingan customer.</p>
+                        {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
+                    </div>
+                </div>
+                <div class="card text-white bg-danger">
+                    {{--<img class="card-img-top" src=".../100px180/" alt="Card image cap">--}}
+                    <div class="card-body">
+                        <h5 class="card-title">Terdepan dalam kualitas</h5>
+                        <p class="card-text">Telah melayani berbagai instansi
+                            pemerintah dan swasta sselama
+                            puluhan tahun di Indonesia.</p>
+                        {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Three columns of text below the carousel -->
+        {{--<div class="row">--}}
+            {{--<div class="col-lg-3">--}}
+                {{--<div>--}}
+                    {{--<h1 class="text-lg-center">--}}
+                        {{--<i class="fa fa-phone"></i>--}}
+                    {{--</h1>--}}
+                {{--</div>--}}
+                {{--<h2>Heading</h2>--}}
+                {{--<p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Praesent commodo cursus magna.</p>--}}
+
+            {{--</div><!-- /.col-lg-4 -->--}}
+            {{--<div class="col-lg-3">--}}
+                {{--<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">--}}
+                {{--<h2>Heading</h2>--}}
+                {{--<p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur purus sit amet fermentum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh.</p>--}}
+
+            {{--</div><!-- /.col-lg-4 -->--}}
+            {{--<div class="col-lg-3">--}}
+                {{--<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">--}}
+                {{--<h2>Heading</h2>--}}
+                {{--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>--}}
+
+            {{--</div><!-- /.col-lg-4 -->--}}
+            {{--<div class="col-lg-3">--}}
+                {{--<img class="rounded-circle" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="140" height="140">--}}
+                {{--<h2>Heading</h2>--}}
+                {{--<p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>--}}
+
+            {{--</div><!-- /.col-lg-4 -->--}}
+        {{--</div><!-- /.row -->--}}
 
 
 
@@ -138,15 +158,32 @@
             <div class="col-lg-12">
                 <div class="card-deck slick-products">
                     <div class="card">
-                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
+                             alt="Card image cap" height="100%" width="100%">
                         <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <h5 class="card-title">Paket semua produk untuk alat kebutuhan khusus</h5>
+                            <p class="card-text">Rp 5.000.000 - 7.500.000<br/>
+                                <small class="text-muted">Per paket</small>
+
+                            </p>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
+                                    {{--<div class="input-group-text">-</div>--}}
+                                </div>
+                                <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="10">
+                                <div class="input-group-append">
+                                    <a href="#" class="input-group-btn btn btn-outline-primary">+</a>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
                         </div>
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <img class="card-img-top" src="{{ URL::asset('img/products/balok-pukul.jpg') }}"
+                             alt="Card image cap" height="100%" width="100%">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
@@ -154,7 +191,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <img class="card-img-top" src="{{ URL::asset('img/products/balok-susun.jpg') }}"
+                             alt="Card image cap" height="100%" width="100%">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -162,7 +200,8 @@
                         </div>
                     </div>
                     <div class="card">
-                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <img class="card-img-top" src="{{ URL::asset('img/products/hijaiyah1.jpg') }}"
+                             alt="Card image cap" height="100%" width="100%">
                         <div class="card-body">
                             <h5 class="card-title">Card title</h5>
                             <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
@@ -186,7 +225,7 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
+                <h2 class="featurette-heading">Baca panduan memesan melalui website ini. <span class="text-muted">It'll blow your mind.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
@@ -198,7 +237,7 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it's that good. <span class="text-muted">See for yourself.</span></h2>
+                <h2 class="featurette-heading">Ajukan kebutuhan Anda dengan mengisi formulir RFQ. <span class="text-muted">di sini.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5 order-md-1">
@@ -208,17 +247,17 @@
 
         <hr class="featurette-divider">
 
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
-            </div>
-            <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-            </div>
-        </div>
+        {{--<div class="row featurette">--}}
+            {{--<div class="col-md-7">--}}
+                {{--<h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>--}}
+                {{--<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>--}}
+            {{--</div>--}}
+            {{--<div class="col-md-5">--}}
+                {{--<img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">--}}
+            {{--</div>--}}
+        {{--</div>--}}
 
-        <hr class="featurette-divider">
+        {{--<hr class="featurette-divider">--}}
 
         <!-- /END THE FEATURETTES -->
 

@@ -16,9 +16,18 @@
 <link rel="stylesheet" type="text/css" href="{{ URL::asset('vendor/slick/slick.css') }}"/>
 <link href="{{ URL::asset('vendor/slick/slick-theme.css') }}" rel="stylesheet">
 
+<link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" />
 
 <style>
     a {
         color: black;
+    }
+    .slider-opacity {
+        background-color: rgba(0, 0, 0, 0.36);
+        opacity: 0.5;
+    }
+    .bg-text {
+        background-color: rgba(0, 0, 0, 0.36);
+
     }
 </style>

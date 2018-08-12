@@ -6,6 +6,8 @@
 </head>
 
 <body>
+    @include('customer.layouts.navbar')
+
     @yield('content')
 
     @include('customer.layouts.footer')
