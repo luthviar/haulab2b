@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     @include('customer.layouts.head')
+    @yield('new-css')
 </head>
 
 <body>

@@ -1,24 +1,34 @@
 @extends('customer.layouts.app')
 
+
 @section('content')
 
 <header>
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="#">Carousel</a>
+    <nav class="navbar navbar-expand-md navbar-default fixed-top bg-light">
+        <a class="navbar-brand text-center" href="#">
+            <img src="{{ URL::asset('img/favicon.png') }}" alt="logo" width="70%" height="100%">
+        </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <a class="nav-link" href="#">My Carts</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
+                    <a class="nav-link" href="#">Register</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+                {{--<li class="nav-item">--}}
+                    {{--<a class="nav-link disabled" href="#">Disabled</a>--}}
+                {{--</li>--}}
             </ul>
             <form class="form-inline mt-2 mt-md-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -108,7 +118,69 @@
         </div><!-- /.row -->
 
 
-        <!-- START THE FEATURETTES -->
+
+        <!-- START ANEKA PRODUK -->
+
+        <hr class="featurette-divider">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1>
+                        Aneka Produk Haula
+                        <a href="#" class="btn btn-info btn-sm" role="button">Lihat Semua</a>
+                    </h1>
+
+                    <hr/>
+                </div>
+            </div>
+        {{--<hr class="featurette-divider">--}}
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card-deck slick-products">
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
 
         <hr class="featurette-divider">
 
@@ -157,4 +229,45 @@
 </main>
 
 
+@endsection
+
+
+@section('new-scripts')
+    <script>
+        $('.slick-products').slick({
+            dots: true,
+            infinite: false,
+            speed: 300,
+            slidesToShow: 4,
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
 @endsection
