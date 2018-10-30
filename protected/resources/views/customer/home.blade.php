@@ -67,7 +67,7 @@
                 <div class="card text-white bg-primary">
                     {{--<img class="card-img-top" src=".../100px180/" alt="Card image cap">--}}
                     <div class="card-body">
-                        <h5 class="card-title">100% Buatan Lokal</h5>
+                        <h5 class="card-title">100% Buatan lokal</h5>
                         <p class="card-text">Kami yakin produk mainan edukasi lokal
                             dapat bersaing secara global dari
                             segi kualitas maupun harga.</p>
@@ -93,7 +93,7 @@
                         {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
                     </div>
                 </div>
-                <div class="card text-white bg-danger">
+                <div class="card text-white bg-secondary">
                     {{--<img class="card-img-top" src=".../100px180/" alt="Card image cap">--}}
                     <div class="card-body">
                         <h5 class="card-title">Terdepan dalam kualitas</h5>
@@ -145,8 +145,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1>
-                        Aneka Produk Haula
-                        <a href="#" class="btn btn-info btn-sm" role="button">Lihat Semua</a>
+                        Aneka Paket Haula
+                        {{--<a href="#" class="btn btn-info btn-sm" role="button">Lihat Semua</a>--}}
                     </h1>
 
                     <hr/>
@@ -157,30 +157,118 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-deck slick-products">
+                    {{--paket 1--}}
                     <div class="card">
                         <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
                              alt="Card image cap" height="100%" width="100%">
                         <div class="card-body">
-                            <h5 class="card-title">Paket semua produk untuk alat kebutuhan khusus</h5>
-                            <p class="card-text">Rp 5.000.000 - 7.500.000<br/>
-                                <small class="text-muted">Per paket</small>
+                            <h5 class="card-title">Paket Alat Kebutuhan Khusus</h5>
+                            <p class="card-text" style="color: red;">
+                                <strong>Rp 7.500.000</strong><br/>
+                                <small class="text-muted" style="color: red!important;">Per paket</small>
 
                             </p>
+                            <p class="card-text">
+                                Paket ini berisi produk alat-alat bagi yang berkebutuhan khusus.
+                                Sangat bermanfaat bagi mereka.
+                            </p>
+                            <a href="#" class="btn btn-success btn-block">
+                                <i class="fa fa-list-ul"></i> Lihat Rincian Produk
+                            </a>
+                            <br/>
                             <div class="input-group mb-2">
                                 <div class="input-group-prepend">
                                     <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
                                     {{--<div class="input-group-text">-</div>--}}
                                 </div>
-                                <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="10">
+                                <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="1">
                                 <div class="input-group-append">
                                     <a href="#" class="input-group-btn btn btn-outline-primary">+</a>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-primary btn-block">Add to Cart</a>
+                            <a href="#" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
                             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
                         </div>
                     </div>
+                    {{--end of paket 1--}}
+
+                    {{--paket 2--}}
+                    <div class="card">
+                        <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
+                             alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <a href="/packets">
+                                <h5 class="card-title">
+                                    Paket Alat Kebutuhan Khusus
+                                </h5>
+                            </a>
+                            <p class="card-text" style="color: red;">
+                                <strong>Rp 7.500.000</strong><br/>
+                                <small class="text-muted" style="color: red!important;">Per paket</small>
+
+                            </p>
+                            <p class="card-text">
+                                Paket ini berisi produk alat-alat bagi yang berkebutuhan khusus.
+                                Sangat bermanfaat bagi mereka.
+                            </p>
+                            <a href="#" class="btn btn-success btn-block">
+                                <i class="fa fa-list-ul"></i> Lihat Rincian Produk
+                            </a>
+                            <br/>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
+                                    {{--<div class="input-group-text">-</div>--}}
+                                </div>
+                                <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="1">
+                                <div class="input-group-append">
+                                    <a href="#" class="input-group-btn btn btn-outline-primary">+</a>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                        </div>
+                    </div>
+                    {{--end of paket 2--}}
+
+                    {{--paket 3--}}
+                    <div class="card">
+                        <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
+                             alt="Card image cap" height="100%" width="100%">
+                        <div class="card-body">
+                            <h5 class="card-title">Paket Alat Kebutuhan Khusus</h5>
+                            <p class="card-text" style="color: red;">
+                                <strong>Rp 7.500.000</strong><br/>
+                                <small class="text-muted" style="color: red!important;">Per paket</small>
+
+                            </p>
+                            <p class="card-text">
+                                Paket ini berisi produk alat-alat bagi yang berkebutuhan khusus.
+                                Sangat bermanfaat bagi mereka.
+                            </p>
+                            <a href="#" class="btn btn-success btn-block">
+                                <i class="fa fa-list-ul"></i> Lihat Rincian Produk
+                            </a>
+                            <br/>
+                            <div class="input-group mb-2">
+                                <div class="input-group-prepend">
+                                    <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
+                                    {{--<div class="input-group-text">-</div>--}}
+                                </div>
+                                <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="1">
+                                <div class="input-group-append">
+                                    <a href="#" class="input-group-btn btn btn-outline-primary">+</a>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                        </div>
+                    </div>
+                    {{--end of paket 3--}}
+
                     <div class="card">
                         <img class="card-img-top" src="{{ URL::asset('img/products/balok-pukul.jpg') }}"
                              alt="Card image cap" height="100%" width="100%">
@@ -225,7 +313,7 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Baca panduan memesan melalui website ini. <span class="text-muted">It'll blow your mind.</span></h2>
+                <h2 class="featurette-heading">Baca panduan pemesanan melalui website ini. <span class="text-muted">It'll blow your mind.</span></h2>
                 <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
             </div>
             <div class="col-md-5">
@@ -277,8 +365,8 @@
             dots: true,
             infinite: false,
             speed: 300,
-            slidesToShow: 4,
-            slidesToScroll: 4,
+            slidesToShow: 3,
+            slidesToScroll: 3,
             responsive: [
                 {
                     breakpoint: 1024,

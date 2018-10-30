@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('customer.home');
 });
+
+Route::get('packets',function () {
+    return view('customer.detail_packets');
+});

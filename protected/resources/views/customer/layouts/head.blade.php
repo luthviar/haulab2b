@@ -18,6 +18,7 @@
 
 <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" />
 
+
 <style>
     a {
         color: black;
@@ -30,4 +31,12 @@
         background-color: rgba(0, 0, 0, 0.36);
 
     }
+
+     .slick-next {
+         z-index: 999999999999!important;
+     }
+    .slick-arrow {
+        z-index: 999999999999!important;
+    }
+
 </style>
