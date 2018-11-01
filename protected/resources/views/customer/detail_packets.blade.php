@@ -51,6 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <h1 class="d-block d-sm-none">
+                        <a href="{{ redirect()->back() }}"><i style="color:red;" class="fa fa-arrow-circle-left"></i></a>
                         Paket Alat Kebutuhan Khusus
                         {{--<a href="#" class="btn btn-info btn-sm" role="button">Lihat Semua</a>--}}
                     </h1>
@@ -89,10 +90,17 @@
                         <div class="card-body">
                             <div class="row d-none d-sm-block">
                                 <div class="col-12">
-                                    <h1 class="card-title">Paket Alat Kebutuhan Khusus</h1>
+
+                                    <h1 class="card-title">
+                                        <a href="./"><i style="color:red;" class="fa fa-arrow-circle-left"></i></a>
+                                        Paket Alat Kebutuhan Khusus
+                                    </h1>
+
                                 </div>
                             </div>
+                            <p><small style="color: green;"><strong>Stock tersedia</strong></small></p>
                             <p class="card-text">
+
                                 Paket ini merupakan kumpulan dari berbagai produk yang dibutuhkan oleh orang yang berkebutuhan khusus.
                                 Cocok untuk Sekolah Anda. Sangat bermanfaat.
                             </p>
@@ -144,7 +152,8 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <h4>Daftar Produk Item di Paket Alat Kebutuhan Khusus</h4>
+                                    <h3 class="text-center">Daftar Produk Item di Paket Alat Kebutuhan Khusus</h3>
+                                    <hr class="featurette-divider" style="margin: 2rem 0;"/>
                                     <div class="card-deck slick-products-item">
                                         {{--paket 1--}}
                                         <div class="card">
@@ -320,11 +329,11 @@
                 </div>
 
                 <div class="col-lg-4 offset-8 d-none d-sm-block">
-                    <a href="#" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                    <a href="/packets/order" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
 
                 </div>
                 <div class="col-lg-12 d-block d-sm-none">
-                    <a href="#" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                    <a href="/packets/order" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
                 </div>
             </div>
 

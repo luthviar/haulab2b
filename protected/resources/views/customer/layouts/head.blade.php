@@ -31,12 +31,17 @@
         background-color: rgba(0, 0, 0, 0.36);
 
     }
-
+    nav {
+        z-index: 99999999999999!important;
+    }
      .slick-next {
-         z-index: 999999999999!important;
+         z-index: 999!important;
      }
     .slick-arrow {
-        z-index: 999999999999!important;
+        z-index: 999!important;
+    }
+    .carousel-caption {
+        padding: 1rem!important;
     }
 
 </style>
