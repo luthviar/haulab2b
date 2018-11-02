@@ -178,6 +178,8 @@
 
             <form action="{{ url(action('HomeController@request_order',[$the_packet->id,$the_packet->title_packet])) }}" method="get">
                 {{ csrf_field() }}
+                <input hidden name="id_packets" value="{{ $the_packet->id }}">
+
             <div class="row featurette text-center">
                 <div class="col-lg-12">
                     <h2 class="text-center">Atur dan pilih kuantitas (Qty) produk yang dipesan</h2>
@@ -214,21 +216,33 @@
                                 <td class="">{!! str_limit($the_products[$i]['data_product']->description_product, 30, '...') !!}</td>
                                 <td class="text-nowrap">
                                     <input class="form-control qtyproduct"
+                                           name="qtyproduct[]"
                                            type="number" onchange="autosums_total_harga_tabel()"
-                                           min="1" value="{{$the_products[$i]['data_product']->qty}}">
+                                           min="0" value="{{$the_products[$i]['data_product']->qty}}">
 
                                 </td>
                                 <td>{{$the_products[$i]['data_product']->unit_name}}</td>
-                                <td>Rp. <span class="harga_satuan">
-                                        {{number_format($the_products[$i]['data_product']->harga_satuan, 0, '', '.')}}
-                                    </span>
+                                <td class="text-nowrap">
+                                    <input type="text" class="form-control harga_satuan" name="harga_satuan[]" readonly
+                                                   value="Rp. {{number_format($the_products[$i]['data_product']->harga_satuan, 0, '', '.')}}"
+                                           >
+
+                                    <h3 style="visibility: hidden;"
+                                        type="text">Rp. 15.000 </h3>
+                                    {{--<span class="harga_satuan">--}}
+                                        {{--{{number_format($the_products[$i]['data_product']->harga_satuan, 0, '', '.')}}--}}
+                                    {{--</span>--}}
+                                    {{--<input hidden name="harga_satuan_save[]"--}}
+                                           {{--class="harga_satuan_save" value="{{ $the_products[$i]['data_product']->harga_satuan }}">--}}
+
                                     <input type="number" style="visibility: hidden;"
                                            value="{{ $the_products[$i]['data_product']->harga_satuan }}" class="harga_satuan_fix">
                                 </td>
                                 <td>
                                     <div class="form-check">
                                         <input class="form-check-input produk_check" name="id_product[]" type="checkbox"
-                                               value="{{$the_products[$i]['data_product']->id}}" id="check_product{{$j}}" checked>
+                                               value="{{$the_products[$i]['data_product']->id}}" onchange="just_check();"
+                                               id="check_product{{$j}}" checked>
                                     </div>
                                 </td>
 
@@ -243,8 +257,8 @@
                             <td></td>
                             <td style="color:forestgreen;"><strong>Total Harga</strong></td>
                             <td colspan="2" style="color:forestgreen;" class="text-nowrap">
-                                <input type="text" class="form-control" id="harga_total_tabel"
-                                       disabled value="Rp. {{ number_format($the_packet->total_price_packet, 0, '', '.') }}">
+                                <input type="text" name="total_harga_order" class="form-control" id="harga_total_tabel"
+                                       readonly value="Rp. {{ number_format($the_packet->total_price_packet, 0, '', '.') }}">
                                 <h4 style="visibility: hidden;" class="text-nowrap">Rp. 15.000.000</h4>
                             </td>
                         </tr>
@@ -408,15 +422,16 @@
                     qtyproduct[i] = document.getElementsByClassName("qtyproduct")[i].value;
                     harga_satuan_fix[i] = document.getElementsByClassName("harga_satuan_fix")[i].value;
 
-                    harga_satuan[i] = document.getElementsByClassName("harga_satuan")[i].innerHTML;
+                    harga_satuan[i] = document.getElementsByClassName("harga_satuan")[i].value;
 
                     var str = harga_satuan[i];
                     var strchange = str.replace(/\./g,'');
 
+
                     new_harga_satuan = parseInt(harga_satuan_fix[i]) * parseInt(qtyproduct[i]);
 //                    new_harga_satuan = parseInt(strchange[i]) * parseInt(qtyproduct[i]);
 
-                    document.getElementsByClassName("harga_satuan")[i].innerHTML = format1(new_harga_satuan, '');
+                    document.getElementsByClassName("harga_satuan")[i].value = format1(new_harga_satuan, 'Rp. ');
 
                     harga_total_tabel += Number(new_harga_satuan);
                 }
@@ -424,6 +439,23 @@
 
             document.getElementById("harga_total_tabel").value = format1(harga_total_tabel, 'Rp. ');
 
+        }
+        
+        function just_check() {
+
+            for(var i = 0;i<document.getElementsByClassName("produk_check").length; i++) {
+                var harga_satuan_fix = parseFloat(document.getElementsByClassName("harga_satuan_fix")[i].value);
+                if(!document.getElementsByClassName("produk_check")[i].checked) {
+
+                    document.getElementsByClassName("harga_satuan")[i].value = format1(0.0, 'Rp. ');
+                    document.getElementsByClassName("qtyproduct")[i].value = 0;
+                    autosums_total_harga_tabel();
+                } else {
+                    document.getElementsByClassName("harga_satuan")[i].value = format1(harga_satuan_fix, 'Rp. ');
+                    document.getElementsByClassName("qtyproduct")[i].value = 1;
+                    autosums_total_harga_tabel();
+                }
+            }
         }
 
         function autosums_total_paket1() {
