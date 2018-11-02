@@ -14,11 +14,15 @@
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index');
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::get('/home', function (){
+    return view('home');
+})->name('home');
 
 Route::get('/packet/{id}/{title}','HomeController@view_packet');
+
+Route::get('/packet/request/{id}/{title}','HomeController@request_order');
 
 Route::get('packets',function () {
     return view('customer.detail_packets');

@@ -26,17 +26,19 @@
                     <hr/>
                 </div>
             </div>
-            {{--<hr class="featurette-divider">--}}
-
 
             <div class="row">
+
                 <div class="col-lg-4">
+
                     <div class="card-deck slick-products">
                         {{--paket 1--}}
                         @foreach($the_packet_images as $data)
                             <div class="card">
-                                <img class="card-img-top" src="{{ $data->img_url_packet }}"
-                                     alt="Card image cap" height="100%" width="100%">
+                                <a href="{{ $data->img_url_packet }}" target="_blank">
+                                    <img class="card-img-top" src="{{ $data->img_url_packet }}"
+                                         alt="Card image cap" height="100%" width="100%">
+                                </a>
                             </div>
                         @endforeach
                         {{--end of paket 1--}}
@@ -75,7 +77,7 @@
                                 <div class="col-lg-3">
                                     <div class="input-group">
                                         <div class="input-group-prepend">
-                                            <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
+                                            <button onclick="dec_qty();" class="input-group-btn btn btn-outline-danger">-</button>
                                             {{--<div class="input-group-text">-</div>--}}
                                         </div>
                                         <input type="text" onchange="autosums_total_paket1()"
@@ -89,7 +91,7 @@
                                     <h5 style="color: red!important;">
                                         <strong>Rp. <span id="total_harga_paket_1"
                                                           onload="formatprice('total_harga_paket_1','{{ $the_packet->total_price_packet }}','Rp. ')">
-                                                {{ $the_packet->total_price_packet }}
+                                                {{ number_format($the_packet->total_price_packet, 0, '', '.') }}
                                             </span>
                                         </strong>
                                         {{--<small class="text-muted" style="color: red!important;">Per paket</small>--}}
@@ -97,12 +99,12 @@
                                 </div>
                                 <div class="col-lg-4">
                                     <p style="font-size: small;" class="text-center">
-                                        Rp <span id="harga_paket_1">{{ $the_packet->total_price_packet }}</span> <span>/ Per paket</span>
+                                        Rp <span id="harga_paket_1">{{ number_format($the_packet->total_price_packet , 0, '', '.') }}</span> <span>/ Per paket</span>
                                     </p>
                                 </div>
                             </div>
 
-                            <a href="#" class="btn btn-primary btn-block card-link">Ajukan Pesanan Paket</a>
+                            <a href="#ajukanpesanan1" class="btn btn-primary btn-block card-link">Ajukan Pesanan Paket</a>
 
 
 
@@ -118,104 +120,50 @@
                             <div class="row">
                                 <div class="col-lg-12">
 
-                                    <h3 class="text-center">Daftar Produk Item di Paket Alat Kebutuhan Khusus</h3>
+                                    <h3 class="text-center">Daftar Produk Item di {{ $the_packet->title_packet }}</h3>
+
                                     <hr class="featurette-divider" style="margin: 2rem 0;"/>
+
                                     <div class="card-deck slick-products-item">
                                         {{--paket 1--}}
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
-                                                 alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Produk Alat Kebutuhan Khusus - A</h5>
-                                                <p class="card-text" style="color: red;">
-                                                    <strong>Rp 130.000</strong><br/>
-                                                    <small class="text-muted" style="color: red!important;">Per item product</small>
+                                        @foreach($the_products as $data)
+                                            <div class="card">
+                                                <div class="row">
+                                                    <div class="col-8 offset-2">
+                                                        <div class="card-deck slick-products">
+                                                            {{--paket 1--}}
+                                                            @foreach($data['data_images'] as $img)
+                                                                <div class="card">
+                                                                    <a href="{{ $img->img_url_product }}" target="_blank">
+                                                                        <img class="card-img-top" src="{{ $img->img_url_product }}"
+                                                                             alt="Card image cap" height="100%" width="100%">
+                                                                    </a>
+                                                                </div>
+                                                            @endforeach
 
-                                                </p>
-                                                <p class="card-text">
-                                                    Paket ini berisi produk alat-alat bagi yang berkebutuhan khusus.
-                                                    Sangat bermanfaat bagi mereka.
-                                                </p>
+                                                            {{--end of paket 1--}}
+                                                        </div>
+                                                    </div>
+                                                </div>
 
+                                                <div class="card-body">
+                                                    <h5 class="card-title">{{ $data['data_product']->title_product }}</h5>
+                                                    <p class="card-text" style="color: red;">
+                                                        <strong>Rp {{ number_format($data['data_product']->harga_satuan, 0, '', '.') }}</strong><br/>
+                                                        <small class="text-muted" style="color: red!important;">
+                                                            Per {{ $data['data_product']->unit_name  }}</small>
+
+                                                    </p>
+                                                    <p class="card-text">
+                                                        {!!   $data['data_product']->description_product  !!}
+                                                    </p>
+
+                                                </div>
                                             </div>
-                                        </div>
+                                        @endforeach
                                         {{--end of paket 1--}}
 
-                                        {{--paket 1--}}
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
-                                                 alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Produk Alat Kebutuhan Khusus - A</h5>
-                                                <p class="card-text" style="color: red;">
-                                                    <strong>Rp 130.000</strong><br/>
-                                                    <small class="text-muted" style="color: red!important;">Per item product</small>
 
-                                                </p>
-                                                <p class="card-text">
-                                                    Paket ini berisi produk alat-alat bagi yang berkebutuhan khusus.
-                                                    Sangat bermanfaat bagi mereka.
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        {{--end of paket 1--}}
-
-                                        {{--paket 1--}}
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
-                                                 alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Produk Alat Kebutuhan Khusus - A</h5>
-                                                <p class="card-text" style="color: red;">
-                                                    <strong>Rp 130.000</strong><br/>
-                                                    <small class="text-muted" style="color: red!important;">Per item product</small>
-
-                                                </p>
-                                                <p class="card-text">
-                                                    Paket ini berisi produk alat-alat bagi yang berkebutuhan khusus.
-                                                    Sangat bermanfaat bagi mereka.
-                                                </p>
-
-                                            </div>
-                                        </div>
-                                        {{--end of paket 1--}}
-
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ URL::asset('img/products/balok-pukul.jpg') }}"
-                                                 alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ URL::asset('img/products/balok-susun.jpg') }}"
-                                                 alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img class="card-img-top" src="{{ URL::asset('img/products/hijaiyah1.jpg') }}"
-                                                 alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <img class="card-img-top" src="holder.js/255x200/auto" alt="Card image cap" height="100%" width="100%">
-                                            <div class="card-body">
-                                                <h5 class="card-title">Card title</h5>
-                                                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-                                                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                                            </div>
-                                        </div>
                                     </div>
 
                                 </div>
@@ -228,59 +176,65 @@
 
             <hr class="featurette-divider">
 
+            <form action="{{ url(action('HomeController@request_order',[$the_packet->id,$the_packet->title_packet])) }}" method="get">
+                {{ csrf_field() }}
             <div class="row featurette text-center">
                 <div class="col-lg-12">
                     <h2 class="text-center">Atur dan pilih kuantitas (Qty) produk yang dipesan</h2>
                 </div>
-                <div class="col-lg-12 text-center  table-responsive">
+                <div class="col-lg-12 text-left  table-responsive">
                     <table class="table table-hover">
                         <thead>
                         <tr>
                             <th scope="col">No</th>
-                            <th scope="col">Gambar</th>
+                            <th class="text-center" scope="col">Gambar <br/> <small>(klik gambar untuk memperbesar)</small></th>
                             <th class="text-nowrap"
                                 scope="col">Nama Produk</th>
                             <th scope="col">Deskripsi</th>
+                            <th class="text-nowrap" scope="col"> -- Qty -- </th>
                             <th scope="col">Satuan</th>
-                            <th scope="col">Qty</th>
                             <th scope="col">Harga</th>
-                            <th scope="col">Pilih</th>
+                            <th scope="col" style="color: forestgreen;">Pilih</th>
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
+                        @for($i=0,$j=1;$i<count($the_products);$i++,$j++)
+                            <tr>
+                                <th scope="row">{{$j}}</th>
+                                <td class="text-center">
+                                    @foreach($the_products[$i]['data_images'] as $img)
+                                        <a href="{{ $img->img_url_product }}" target="_blank">
+                                            <img class="card-img-top" src="{{ $img->img_url_product }}"
+                                                 alt="Card image cap" style="width: 50%;">
+                                        </a>
+                                        @break
+                                    @endforeach
+                                </td>
+                                <td>{{$the_products[$i]['data_product']->title_product}}</td>
+                                <td class="">{!! str_limit($the_products[$i]['data_product']->description_product, 30, '...') !!}</td>
+                                <td class="text-nowrap">
+                                    <input class="form-control qtyproduct"
+                                           type="number" onchange="autosums_total_harga_tabel()"
+                                           min="1" value="{{$the_products[$i]['data_product']->qty}}">
 
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
+                                </td>
+                                <td>{{$the_products[$i]['data_product']->unit_name}}</td>
+                                <td>Rp. <span class="harga_satuan">
+                                        {{number_format($the_products[$i]['data_product']->harga_satuan, 0, '', '.')}}
+                                    </span>
+                                    <input type="number" style="visibility: hidden;"
+                                           value="{{ $the_products[$i]['data_product']->harga_satuan }}" class="harga_satuan_fix">
+                                </td>
+                                <td>
+                                    <div class="form-check">
+                                        <input class="form-check-input produk_check" name="id_product[]" type="checkbox"
+                                               value="{{$the_products[$i]['data_product']->id}}" id="check_product{{$j}}" checked>
+                                    </div>
+                                </td>
 
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>Mark</td>
+                            </tr>
+                        @endfor
 
-                        </tr>
                         <tr>
                             <td></td>
                             <td></td>
@@ -288,20 +242,26 @@
                             <td></td>
                             <td></td>
                             <td style="color:forestgreen;"><strong>Total Harga</strong></td>
-                            <td style="color:forestgreen;"><strong>Rp. 15.000.000</strong></td>
+                            <td colspan="2" style="color:forestgreen;" class="text-nowrap">
+                                <input type="text" class="form-control" id="harga_total_tabel"
+                                       disabled value="Rp. {{ number_format($the_packet->total_price_packet, 0, '', '.') }}">
+                                <h4 style="visibility: hidden;" class="text-nowrap">Rp. 15.000.000</h4>
+                            </td>
                         </tr>
                         </tbody>
                     </table>
                 </div>
 
                 <div class="col-lg-4 offset-8 d-none d-sm-block">
-                    <a href="/packets/order" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                    <button type="submit" id="ajukanpesanan1" class="btn btn-primary btn-block">Ajukan Pesanan Paket</button>
 
                 </div>
                 <div class="col-lg-12 d-block d-sm-none">
-                    <a href="/packets/order" class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                    <button type="submit" id="ajukanpesanan2" class="btn btn-primary btn-block">Ajukan Pesanan Paket</button>
                 </div>
+
             </div>
+            </form>
 
             <hr class="featurette-divider">
 
@@ -392,21 +352,81 @@
                 // instead of a settings object
             ]
         });
+
+        $('.slick-products-mini').slick({
+            dots: true,
+            infinite: true,
+            speed: 300,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
     </script>
     <script>
-        function autosums_total_paket1() {
-//            var totalmaskapai = 0;
-//            var hargamaskapai = [];
-//            for(var i = 0;i<document.getElementsByClassName("hargamaskapai").length; i++) {
-//                hargamaskapai[i] = document.getElementsByClassName("hargamaskapai")[i].value;
-//                if(!hargamaskapai[i]) {
-//                    hargamaskapai[i] = '0.0';
-//                }
-//                str = hargamaskapai[i];
-//                strchange = str.replace(/\./g,'');
-//                totalmaskapai += Number(strchange);
-//            }
 
+        function autosums_total_harga_tabel() {
+
+//            document.getElementsByClassName("harga_satuan")[0].innerHTML = format1(parseInt((document.getElementsByClassName("harga_satuan")[0].innerHTML).replace(/\./g,'')) * parseInt(document.getElementsByClassName("qtyproduct")[0].value), 'Rp. ');
+            var harga_total_tabel = 0;
+            var qtyproduct = [];
+            var harga_satuan = [];
+            var harga_satuan_fix = [];
+            var produk_check = [];
+            var new_harga_satuan = 0;
+            for(var i = 0;i<document.getElementsByClassName("produk_check").length; i++) {
+
+                if(document.getElementsByClassName("produk_check")[i].checked &&
+                    (document.getElementsByClassName("qtyproduct")[i].value > 0)){
+
+                    qtyproduct[i] = document.getElementsByClassName("qtyproduct")[i].value;
+                    harga_satuan_fix[i] = document.getElementsByClassName("harga_satuan_fix")[i].value;
+
+                    harga_satuan[i] = document.getElementsByClassName("harga_satuan")[i].innerHTML;
+
+                    var str = harga_satuan[i];
+                    var strchange = str.replace(/\./g,'');
+
+                    new_harga_satuan = parseInt(harga_satuan_fix[i]) * parseInt(qtyproduct[i]);
+//                    new_harga_satuan = parseInt(strchange[i]) * parseInt(qtyproduct[i]);
+
+                    document.getElementsByClassName("harga_satuan")[i].innerHTML = format1(new_harga_satuan, '');
+
+                    harga_total_tabel += Number(new_harga_satuan);
+                }
+            }
+
+            document.getElementById("harga_total_tabel").value = format1(harga_total_tabel, 'Rp. ');
+
+        }
+
+        function autosums_total_paket1() {
             var harga_paket_1 = parseInt(document.getElementById("harga_paket_1").innerHTML);
             var qty_paket_1 = document.getElementById("qty_paket_1").value;
             var total_harga_paket_1 = harga_paket_1 * qty_paket_1;
@@ -421,11 +441,6 @@
                 });
         }
 
-        function formatprice(idName ,n, currency) {
-            var n2 = parseInt(n);
-            document.getElementById(idName).innerHTML = format1(n2, currency);
-        }
-
         function inc_qty() {
             var qty1 = document.getElementById('qty_paket_1').value;
             var qty2 = parseInt(qty1);
@@ -433,11 +448,33 @@
 
             document.getElementById('qty_paket_1').value = increment_qty;
 
+            var str1 = document.getElementById("harga_paket_1").innerHTML;
+            var str1change = str1.replace(/\./g,'');
 
-            var harga_paket_1 = parseInt(document.getElementById("harga_paket_1").innerHTML);
+            var harga_paket_1 = parseInt(str1change);
             var total_harga_paket_1 = harga_paket_1 * increment_qty;
 
             document.getElementById("total_harga_paket_1").innerHTML = format1(total_harga_paket_1, ' ');
+        }
+
+        function dec_qty() {
+            var qty1 = document.getElementById('qty_paket_1').value;
+            var qty2 = parseInt(qty1);
+            if (qty2 > 1) {
+                var decrement_qty = qty2 - 1;
+
+
+            document.getElementById('qty_paket_1').value = decrement_qty;
+
+            var str1 = document.getElementById("harga_paket_1").innerHTML;
+            var str1change = str1.replace(/\./g,'');
+
+            var harga_paket_1 = parseInt(str1change);
+
+            var total_harga_paket_1 = harga_paket_1 * decrement_qty;
+
+            document.getElementById("total_harga_paket_1").innerHTML = format1(total_harga_paket_1, ' ');
+            }
         }
     </script>
 @endsection

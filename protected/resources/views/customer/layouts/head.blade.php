@@ -18,6 +18,8 @@
 
 <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" />
 
+<script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
+<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 
 <style>
     a {
