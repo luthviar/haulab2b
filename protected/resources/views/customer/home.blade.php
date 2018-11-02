@@ -125,10 +125,50 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-deck slick-products">
+                    @foreach($list_packets as $packet)
+                        <div class="card">
+                            <img class="card-img-top" src="{{ url($packet->img_url_packet) }}"
+                                 alt="Card image cap" height="100%" width="100%">
+
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <a href="{{ url('/packet/'.$packet->id .'/' .$packet->title_packet) }}">
+                                        {{ $packet->title_packet }}
+                                    </a>
+                                </h5>
+                                <p class="card-text" style="color: red;">
+                                    <strong>{{ $packet->total_price_packet }}</strong><br/>
+                                    <small class="text-muted" style="color: red!important;">Per paket</small>
+
+                                </p>
+                                <p class="card-text">
+                                    {{ $packet->description_packet }}
+                                </p>
+                                <a href="{{ url('packet/'.$packet->id .'/' .$packet->title_packet) }}" class="btn btn-success btn-block">
+                                    <i class="fa fa-list-ul"></i> Lihat Rincian Produk
+                                </a>
+                                <br/>
+                                <div class="input-group mb-2">
+                                    <div class="input-group-prepend">
+                                        <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
+                                        {{--<div class="input-group-text">-</div>--}}
+                                    </div>
+                                    <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="1">
+                                    <div class="input-group-append">
+                                        <a href="#" class="input-group-btn btn btn-outline-primary">+</a>
+                                    </div>
+                                </div>
+                                <a href="{{ url('packet/order/'.$packet->id.'/'  .$packet->title_packet) }}"  class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                                {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
+
+                            </div>
+                        </div>
+                    @endforeach
                     {{--paket 1--}}
                     <div class="card">
                         <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
                              alt="Card image cap" height="100%" width="100%">
+
                         <div class="card-body">
                             <h5 class="card-title">Paket Alat Kebutuhan Khusus</h5>
                             <p class="card-text" style="color: red;">
@@ -334,13 +374,13 @@
             infinite: false,
             speed: 300,
             slidesToShow: 3,
-            slidesToScroll: 3,
+            slidesToScroll: 1,
             responsive: [
                 {
                     breakpoint: 1024,
                     settings: {
                         slidesToShow: 3,
-                        slidesToScroll: 3,
+                        slidesToScroll: 1,
                         infinite: true,
                         dots: true
                     }
@@ -349,7 +389,7 @@
                     breakpoint: 600,
                     settings: {
                         slidesToShow: 2,
-                        slidesToScroll: 2
+                        slidesToScroll: 1
                     }
                 },
                 {

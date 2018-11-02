@@ -16,9 +16,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', function () {
-    return view('customer.home');
-});
+Route::get('/', 'HomeController@index')->name('home');
+
+Route::get('/packet/{id}/{title}','HomeController@view_packet');
 
 Route::get('packets',function () {
     return view('customer.detail_packets');
