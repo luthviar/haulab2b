@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -84,10 +85,55 @@ class HomeController extends Controller
     }
 
     public function request_order(Request $request) {
+//        dd(Auth::user()->id);
         if (Auth::user()){
-            dd($request);
+//            dd($request);
+            // invoice : INV + CARBONTIMESTAMP + id_packet + 00 + id_pembeli
+            $invoice = 'INV'.Carbon::now()->timestamp.$request->id_packets.'00'.Auth::user()->id;
+            $str1 = str_replace('Rp. ','',$request->total_harga_order);
+            $str2 = str_replace('.','',$str1);
+            $total_price_order = (int) $str2;
+
+            $id_order_history = DB::table('order_history')->insertGetId(
+                [
+                    'id_invoice' => $invoice,
+                    'total_price_order' => $total_price_order,
+                    'created_by' => Auth::user()->id,
+                    'updated_by' => Auth::user()->id,
+                    'id_status' => 1,
+                    'flag_active' => 1,
+                ]
+            );
+
+            for($i=0;$i<count($request->id_product);$i++) {
+                for($j=0;$j<count($request->qtyproduct);$j++) {
+                    if ($request->qtyproduct[$j] > 0) {
+                        $str1 = str_replace('Rp. ','',$request->harga_satuan[$j]);
+                        $str2 = str_replace('.','',$str1);
+                        $total_price_per_product = (int) $str2;
+                        $id_transactions = DB::table('transactions')->insertGetId(
+                            [
+                                'id_invoice' => $invoice,
+                                'id_order_history' => $id_order_history,
+                                'id_pembeli' => Auth::user()->id,
+                                'id_packets' => $request->id_packets,
+                                'id_products' => $request->id_product[$i],
+                                'flag_active' => 1,
+                                'qty_order' => $request->qtyproduct[$j],
+                                'total_price_order' => $total_price_per_product
+                            ]
+                        );
+                    } //endif
+                } //end for qty
+            }// end for id_product
+
+            return redirect('/packet/request/invoice/'.$id_order_history.'/'.$invoice);
         } else {
             return redirect('/login');
         }
+    }
+
+    public function request_invoice() {
+        return view('customer.detail_invoice');
     }
 }

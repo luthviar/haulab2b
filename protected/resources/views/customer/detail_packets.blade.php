@@ -179,6 +179,7 @@
             <form action="{{ url(action('HomeController@request_order',[$the_packet->id,$the_packet->title_packet])) }}" method="get">
                 {{ csrf_field() }}
                 <input hidden name="id_packets" value="{{ $the_packet->id }}">
+                <input hidden name="packet_title" value="{{ $the_packet->title_packet }}">
 
             <div class="row featurette text-center">
                 <div class="col-lg-12">

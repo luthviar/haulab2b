@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ddad61-66fc-41fc-b097-bf22378f37aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/routes/web.php" afterPath="$PROJECT_DIR$/protected/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -58,10 +61,10 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="42" column="71" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="71" />
+            <state relative-caret-position="592">
+              <caret line="116" column="72" lean-forward="false" selection-start-line="116" selection-start-column="72" selection-end-line="116" selection-end-column="72" />
               <folding>
-                <element signature="e#40#68#0#PHP" expanded="true" />
+                <element signature="e#40#58#0#PHP" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -70,33 +73,45 @@
       <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+            <state relative-caret-position="200">
+              <caret line="26" column="81" lean-forward="false" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="81" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="detail_packets.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="detail_packets.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
-              <caret line="260" column="47" lean-forward="false" selection-start-line="260" selection-start-column="47" selection-end-line="260" selection-end-column="47" />
+            <state relative-caret-position="230">
+              <caret line="181" column="85" lean-forward="false" selection-start-line="181" selection-start-column="85" selection-end-line="181" selection-end-column="85" />
               <folding>
                 <element signature="e#4297#4326#0#HTML" expanded="true" />
                 <element signature="e#8094#8113#0#HTML" expanded="true" />
                 <element signature="e#8347#8376#0#HTML" expanded="true" />
-                <element signature="e#10516#10543#0#HTML" expanded="true" />
-                <element signature="e#11230#11249#0#HTML" expanded="true" />
-                <element signature="e#12587#12614#0#HTML" expanded="true" />
-                <element signature="e#13218#13245#0#HTML" expanded="true" />
-                <element signature="e#14672#14699#0#HTML" expanded="true" />
-                <marker date="1541166258736" expanded="true" signature="21473:21828" ph="..." />
-                <marker date="1541166258736" expanded="true" signature="21869:22064" ph="..." />
-                <marker date="1541166258736" expanded="true" signature="21946:22052" ph="..." />
-                <marker date="1541166258736" expanded="true" signature="22095:22689" ph="..." />
-                <marker date="1541166258736" expanded="true" signature="22720:23362" ph="..." />
-                <marker date="1541166258736" expanded="true" signature="22856:23352" ph="..." />
+                <element signature="e#10607#10634#0#HTML" expanded="true" />
+                <element signature="e#11321#11340#0#HTML" expanded="true" />
+                <element signature="e#12678#12705#0#HTML" expanded="true" />
+                <element signature="e#13309#13336#0#HTML" expanded="true" />
+                <element signature="e#14763#14790#0#HTML" expanded="true" />
+                <marker date="1541169343850" expanded="true" signature="21564:21919" ph="..." />
+                <marker date="1541169343850" expanded="true" signature="21960:22155" ph="..." />
+                <marker date="1541169343850" expanded="true" signature="22037:22143" ph="..." />
+                <marker date="1541169343850" expanded="true" signature="22186:22780" ph="..." />
+                <marker date="1541169343850" expanded="true" signature="22811:23453" ph="..." />
+                <marker date="1541169343850" expanded="true" signature="22947:23443" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail_invoice.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="16" column="59" lean-forward="true" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+              <folding>
+                <element signature="e#6235#6254#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -106,11 +121,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>per pa</find>
-      <find>per se</find>
-      <find>gambar</find>
-      <find>qtypr</find>
-      <find>checked</find>
       <find>harga_sa</find>
       <find>&gt;harga</find>
       <find>price</find>
@@ -136,6 +146,11 @@
       <find>just</find>
       <find>harga_satuan_f</find>
       <find>qtypro</find>
+      <find>.rep</find>
+      <find>id_pac</find>
+      <find>arr</find>
+      <find>lanjut</find>
+      <find>feature</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -158,14 +173,14 @@
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/app.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/success_order.blade.php" />
-        <option value="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" />
         <option value="$PROJECT_DIR$/protected/.env" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/scripts.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/head.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/home.blade.php" />
         <option value="$PROJECT_DIR$/protected/routes/web.php" />
-        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
+        <option value="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" />
       </list>
     </option>
   </component>
@@ -555,12 +570,12 @@
       <workItem from="1534056262457" duration="12584000" />
       <workItem from="1534130762449" duration="642000" />
       <workItem from="1540881098956" duration="11028000" />
-      <workItem from="1541068850457" duration="33382000" />
+      <workItem from="1541068850457" duration="37175000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57636000" />
+    <option name="totallyTimeSpent" value="61429000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -645,17 +660,17 @@
             <element signature="e#4297#4326#0#HTML" expanded="true" />
             <element signature="e#8094#8113#0#HTML" expanded="true" />
             <element signature="e#8347#8376#0#HTML" expanded="true" />
-            <element signature="e#10516#10543#0#HTML" expanded="true" />
-            <element signature="e#11230#11249#0#HTML" expanded="true" />
-            <element signature="e#12587#12614#0#HTML" expanded="true" />
-            <element signature="e#13218#13245#0#HTML" expanded="true" />
-            <element signature="e#14672#14699#0#HTML" expanded="true" />
-            <marker date="1541166258736" expanded="true" signature="21473:21828" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="21869:22064" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="21946:22052" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="22095:22689" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="22720:23362" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="22856:23352" ph="..." />
+            <element signature="e#10607#10634#0#HTML" expanded="true" />
+            <element signature="e#11321#11340#0#HTML" expanded="true" />
+            <element signature="e#12678#12705#0#HTML" expanded="true" />
+            <element signature="e#13309#13336#0#HTML" expanded="true" />
+            <element signature="e#14763#14790#0#HTML" expanded="true" />
+            <marker date="1541169343850" expanded="true" signature="21564:21919" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="21960:22155" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22037:22143" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22186:22780" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22811:23453" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22947:23443" ph="..." />
           </folding>
         </state>
       </provider>
@@ -772,18 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="136" column="67" lean-forward="false" selection-start-line="136" selection-start-column="67" selection-end-line="136" selection-end-column="67" />
-          <folding>
-            <element signature="e#1976#1996#0#HTML" expanded="true" />
-            <element signature="e#2279#2297#0#HTML" expanded="true" />
-            <element signature="e#5140#5166#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/.env">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -849,41 +852,51 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="24" column="10" lean-forward="false" selection-start-line="24" selection-start-column="10" selection-end-line="24" selection-end-column="10" />
+        <state relative-caret-position="200">
+          <caret line="26" column="81" lean-forward="false" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="81" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="42" column="71" lean-forward="true" selection-start-line="42" selection-start-column="13" selection-end-line="42" selection-end-column="71" />
+        <state relative-caret-position="592">
+          <caret line="116" column="72" lean-forward="false" selection-start-line="116" selection-start-column="72" selection-end-line="116" selection-end-column="72" />
           <folding>
-            <element signature="e#40#68#0#PHP" expanded="true" />
+            <element signature="e#40#58#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="260" column="47" lean-forward="false" selection-start-line="260" selection-start-column="47" selection-end-line="260" selection-end-column="47" />
+        <state relative-caret-position="230">
+          <caret line="181" column="85" lean-forward="false" selection-start-line="181" selection-start-column="85" selection-end-line="181" selection-end-column="85" />
           <folding>
             <element signature="e#4297#4326#0#HTML" expanded="true" />
             <element signature="e#8094#8113#0#HTML" expanded="true" />
             <element signature="e#8347#8376#0#HTML" expanded="true" />
-            <element signature="e#10516#10543#0#HTML" expanded="true" />
-            <element signature="e#11230#11249#0#HTML" expanded="true" />
-            <element signature="e#12587#12614#0#HTML" expanded="true" />
-            <element signature="e#13218#13245#0#HTML" expanded="true" />
-            <element signature="e#14672#14699#0#HTML" expanded="true" />
-            <marker date="1541166258736" expanded="true" signature="21473:21828" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="21869:22064" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="21946:22052" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="22095:22689" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="22720:23362" ph="..." />
-            <marker date="1541166258736" expanded="true" signature="22856:23352" ph="..." />
+            <element signature="e#10607#10634#0#HTML" expanded="true" />
+            <element signature="e#11321#11340#0#HTML" expanded="true" />
+            <element signature="e#12678#12705#0#HTML" expanded="true" />
+            <element signature="e#13309#13336#0#HTML" expanded="true" />
+            <element signature="e#14763#14790#0#HTML" expanded="true" />
+            <marker date="1541169343850" expanded="true" signature="21564:21919" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="21960:22155" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22037:22143" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22186:22780" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22811:23453" ph="..." />
+            <marker date="1541169343850" expanded="true" signature="22947:23443" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="16" column="59" lean-forward="true" selection-start-line="16" selection-start-column="59" selection-end-line="16" selection-end-column="59" />
+          <folding>
+            <element signature="e#6235#6254#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

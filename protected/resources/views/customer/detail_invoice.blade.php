@@ -61,7 +61,7 @@
                             <div class="row d-none d-sm-block">
                                 <div class="col-12">
                                     <h1 class="card-title">
-                                        <a href="./"><i style="color:red;" class="fa fa-arrow-circle-left"></i></a>
+
                                         Paket Alat Kebutuhan Khusus
                                     </h1>
                                 </div>
@@ -126,18 +126,31 @@
                                     </table>
                                 </div>
 
-                                <div class="col-lg-6 offset-6 d-none d-sm-block">
-                                    <a href="/packets/order/success" class="btn btn-success btn-block">
-                                        <i class="fa fa-send"></i>
-                                        Lanjutkan tahap berikutnya
-                                    </a>
-
-                                </div>
                                 <div class="col-lg-12 d-block d-sm-none">
                                     <a href="/packets/order/success" class="btn btn-success btn-block">
                                         <i class="fa fa-send"></i>
                                         Lanjutkan tahap berikutnya
                                     </a>
+                                </div>
+
+                                <div class="col-lg-4">
+                                    <br class="d-block d-sm-none"/> <br class="d-block d-sm-none"/> <br class="d-block d-sm-none"/>
+                                    <div class="col-lg-6">
+                                        <a href="/packets/order/success" class="btn btn-danger btn-block">
+                                            <i class="fa fa-arrow-circle-left"></i> Back
+                                        </a>
+                                    </div>
+                                    <small style="color: red;" class="text-left">
+                                        Data Pesanan Anda akan hilang jika kembali ke halaman sebelumnya.
+                                    </small>
+                                </div>
+
+                                <div class="col-lg-6 offset-2 d-none d-sm-block">
+                                    <a href="/packets/order/success" class="btn btn-success btn-block">
+                                        <i class="fa fa-send"></i>
+                                        Lanjutkan tahap berikutnya
+                                    </a>
+
                                 </div>
                             </div>
 
