@@ -27,36 +27,30 @@
                         <div class="row">
 
                             <div class="col-12">
-                                <h2 class="card-title text-center">
+                                <h3 class="card-title text-center">
                                     {{--<a href="./"><i style="color:red;" class="fa fa-arrow-circle-left"></i></a>--}}
-                                    Pesanan Anda sudah disimpan.<br/><br/>
+                                    {{--Pesanan Anda sudah disimpan.<br/>--}}
+                                    No. Invoice: {{$data_order->id_invoice}}<br/>
                                     <span style="color: red;">Tahap Terakhir: Chat Admin</span><br/>
-                                </h2>
+                                </h3>
                             </div>
                         </div>
                         <div class="row featurette text-center">
                             <div class="col-lg-12">
                                 <h2 class="text-center"></h2>
-                                <p>Total tagihan Anda pada: Paket Alat Kebutuhan Khusus</p>
+                                <p>Total tagihan Anda pada: {{ $the_packet->title_packet }}</p>
 
                             </div>
                             <div class="col-4">
                                 <div class="card-deck slick-products">
-                                    {{--paket 1--}}
-                                    <div class="card">
-                                        <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
-                                             alt="Card image cap" height="100%" width="100%">
-                                    </div>
-                                    {{--end of paket 1--}}
-
-                                    {{--paket 2--}}
-                                    <div class="card">
-                                        <img class="card-img-top" src="{{ URL::asset('img/products/peraga-khusus.jpg') }}"
-                                             alt="Card image cap" height="100%" width="100%">
-
-                                    </div>
-                                    {{--end of paket 2--}}
-
+                                    @foreach($the_packet_img as $data)
+                                        <div class="card">
+                                            <a href="{{ $data->img_url_packet }}" target="_blank">
+                                                <img class="card-img-top" src="{{ $data->img_url_packet }}"
+                                                     alt="Card image cap" height="100%" width="100%">
+                                            </a>
+                                        </div>
+                                    @endforeach
 
                                 </div>
 
@@ -77,33 +71,15 @@
                                     </tr>
                                     </thead>
                                     <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
+                                    @for($i=0,$j=1;$i<count($the_product_orders);$i++,$j++)
+                                        <tr>
+                                            <th scope="row">{{$j}}</th>
+                                            <td>{{ $the_product_orders[$i]->title_product }}</td>
+                                            <td>{{ $the_product_orders[$i]->qty_order }}</td>
+                                            <td>Rp. {{ number_format($the_product_orders[$i]->total_price_order , 0, '', '.')}}</td>
+                                        </tr>
+                                    @endfor
 
-
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-
-
-
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-
-
-
-                                    </tr>
                                     <tr>
 
 
@@ -111,7 +87,11 @@
                                         <td></td>
 
                                         <td style="color:forestgreen;"><strong>Total Tagihan</strong></td>
-                                        <td class="text-nowrap" style="color:forestgreen;"><strong>Rp. 15.000.000</strong></td>
+                                        <td class="text-nowrap" style="color:forestgreen;">
+                                            <strong>Rp.
+                                                {{ number_format($data_order->total_price_order , 0, '', '.') }}
+                                            </strong>
+                                        </td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -122,10 +102,15 @@
                             </div>
 
                             <div class="col-lg-8 offset-lg-2">
-                                <a href="https://api.whatsapp.com/send?phone=6282121227019&text=Halo%20admin%20saya%20mau%20order" target="_blank" class="btn btn-success btn-block">
-                                    <i class="fa fa-whatsapp"></i>
-                                    Chat Admin
-                                </a>
+                                <form method="post" action="{{ url(action('HomeController@chat_admin')) }}">
+                                    {{ csrf_field() }}
+                                    <input name="id_order_history" value="{{ $id_order_history }}" hidden>
+                                    <button type="submit" class="btn btn-success btn-block">
+                                        <i class="fa fa-whatsapp"></i>
+                                        Chat Admin
+                                    </button>
+                                </form>
+
                             </div>
                         </div>
 
@@ -156,6 +141,11 @@
 
 @section('new-scripts')
     <script>
+        window.onbeforeunload = function () {return false;}
+        history.pushState(null, null, location.href);
+        window.onpopstate = function () {
+            history.go(1);
+        };
         $('.slick-products').slick({
             dots: true,
             infinite: false,
@@ -228,5 +218,6 @@
                 // instead of a settings object
             ]
         });
+
     </script>
 @endsection

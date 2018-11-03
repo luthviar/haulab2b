@@ -137,8 +137,13 @@
                                     </a>
                                 </h5>
                                 <p class="card-text" style="color: red;">
-                                    <strong>Rp. {{ $packet->total_price_packet }}</strong><br/>
-                                    <small class="text-muted" style="color: red!important;">Per paket</small>
+                                    <strong>Rp.
+                                        <span id="harga_paket_{{$packet->id}}">
+                                            {{ number_format($packet->total_price_packet, 0, '', '.') }}
+                                        </span>
+                                    </strong><br/>
+                                    <small class="text-muted" style="color: red!important;">Per <span id="qtychange{{$packet->id}}"></span> paket</small>
+                                    <input hidden id="harga_paket_fix_{{$packet->id}}" value="{{ $packet->total_price_packet }}">
 
                                 </p>
                                 <p class="card-text">
@@ -150,15 +155,19 @@
                                 <br/>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <a href="#" class="input-group-btn btn btn-outline-danger">-</a>
+                                        <button onclick="dec_qty{{$packet->id}}()" class="input-group-btn btn btn-outline-danger">-</button>
                                         {{--<div class="input-group-text">-</div>--}}
                                     </div>
-                                    <input type="text" class="form-control text-center" id="inlineFormInputGroup" placeholder="1">
+                                    <input type="text"
+                                           class="form-control text-center" id="qty_paket_{{$packet->id}}"
+                                           min="1"
+                                           value="1">
                                     <div class="input-group-append">
-                                        <a href="#" class="input-group-btn btn btn-outline-primary">+</a>
+                                        <button onclick="inc_qty{{$packet->id}}();" class="input-group-btn btn btn-outline-primary">+</button>
                                     </div>
                                 </div>
-                                <a href="{{ url('packet/order/'.$packet->id.'/'  .$packet->title_packet) }}"  class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+                                <a href="{{ url('packet/order/'.$packet->id.'/'  .$packet->title_packet) }}"
+                                   class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
                                 {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
 
                             </div>
@@ -166,6 +175,49 @@
                     @endforeach
 
                 </div>
+
+                @foreach($list_packets as $packet)
+                    <script>
+                        function inc_qty{{$packet->id}}() {
+                            var qty1 = document.getElementById('qty_paket_{{$packet->id}}').value;
+                            var qty2 = parseInt(qty1);
+                            var increment_qty = qty2 + 1;
+
+                            document.getElementById('qty_paket_{{$packet->id}}').value = increment_qty;
+
+                            var str1 = document.getElementById("harga_paket_fix_{{$packet->id}}").value;
+//                            var str1change = str1.replace(/\./g,'');
+
+                            var harga_paket_1 = parseInt(str1);
+                            var total_harga_paket_1 = harga_paket_1 * increment_qty;
+
+                            document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
+                            document.getElementById("qtychange{{$packet->id}}").innerHTML = increment_qty;
+                        }
+
+                        function dec_qty{{$packet->id}}() {
+                            var qty1 = document.getElementById('qty_paket_{{$packet->id}}').value;
+                            var qty2 = parseInt(qty1);
+                            if (qty2 > 1) {
+                                var decrement_qty = qty2 - 1;
+
+
+                                document.getElementById('qty_paket_{{$packet->id}}').value = decrement_qty;
+
+                                var str1 = document.getElementById("harga_paket_fix_{{$packet->id}}").value;
+//                                var str1change = str1.replace(/\./g,'');
+
+                                var harga_paket_1 = parseInt(str1);
+
+                                var total_harga_paket_1 = harga_paket_1 * decrement_qty;
+
+                                document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
+                                document.getElementById("qtychange{{$packet->id}}").innerHTML = decrement_qty;
+                            }
+                        }
+                    </script>
+                @endforeach
+
 
             </div>
         </div>
@@ -257,5 +309,11 @@
                 // instead of a settings object
             ]
         });
+
+        function format1(n, currency) {
+            return currency + n.toFixed(0).replace(/./g, function(c, i, a) {
+                    return i > 0 && c !== "," && (a.length - i) % 3 === 0 ? "." + c : c;
+                });
+        }
     </script>
 @endsection

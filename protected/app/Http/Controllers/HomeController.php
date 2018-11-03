@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Redirect;
 
 class HomeController extends Controller
 {
@@ -16,7 +17,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth')->except('index','view_packet');
+        $this->middleware('auth')->except('index','view_packet','chat_admin');
     }
 
     /**
@@ -69,11 +70,11 @@ class HomeController extends Controller
 
 //        dd($data_products);
 
-        foreach($data_products as $data) {
-            foreach ($data['data_images'] as $img){
-//                dd($img->img_url_product);
-            }
-        }
+//        foreach($data_products as $data) {
+//            foreach ($data['data_images'] as $img){
+////                dd($img->img_url_product);
+//            }
+//        }
 
 
 //        dd($the_product_images[1][0]->img_url_product);
@@ -105,29 +106,52 @@ class HomeController extends Controller
                 ]
             );
 
-            for($i=0;$i<count($request->id_product);$i++) {
-                for($j=0;$j<count($request->qtyproduct);$j++) {
-                    if ($request->qtyproduct[$j] > 0) {
-                        $str1 = str_replace('Rp. ','',$request->harga_satuan[$j]);
-                        $str2 = str_replace('.','',$str1);
-                        $total_price_per_product = (int) $str2;
-                        $id_transactions = DB::table('transactions')->insertGetId(
-                            [
-                                'id_invoice' => $invoice,
-                                'id_order_history' => $id_order_history,
-                                'id_pembeli' => Auth::user()->id,
-                                'id_packets' => $request->id_packets,
-                                'id_products' => $request->id_product[$i],
-                                'flag_active' => 1,
-                                'qty_order' => $request->qtyproduct[$j],
-                                'total_price_order' => $total_price_per_product
-                            ]
-                        );
-                    } //endif
-                } //end for qty
-            }// end for id_product
+            $data_products = array();
+            for($j=0;$j<count($request->qtyproduct);$j++) {
+                if ($request->qtyproduct[$j] > 0 || !($request->harga_satuan[$j] == 'Rp. 0')) {
+                    $str1 = str_replace('Rp. ','',$request->harga_satuan[$j]);
+                    $str2 = str_replace('.','',$str1);
+                    $total_price_per_product = (int) $str2;
+                    $id_transactions = DB::table('transactions')->insertGetId(
+                        [
+                            'id_invoice' => $invoice,
+                            'id_order_history' => $id_order_history,
+                            'id_pembeli' => Auth::user()->id,
+                            'id_packets' => $request->id_packets,
+                            'id_products' => $request->id_product[$j],
+                            'flag_active' => 1,
+                            'qty_order' => $request->qtyproduct[$j],
+                            'total_price_order' => $total_price_per_product
+                        ]
+                    );
 
-            return redirect('/packet/request/invoice/'.$id_order_history.'/'.$invoice);
+                    $the_product_orders = DB::table('transactions as t')
+                        ->join('products as p', 'p.id','=','t.id_products')
+                        ->where('t.id','=',$id_transactions)
+                        ->select('p.title_product','p.unit_name','t.qty_order','t.total_price_order')
+                        ->first();
+
+                    $data_products[] = $the_product_orders;
+
+                } //endif
+            } //end for qty or harga_satuan
+
+
+
+            $the_packet = DB::table('packets as p')
+                        ->where('p.id','=',$request->id_packets)
+                        ->first();
+
+            $the_packet_img = DB::table('packet_images as pi')
+                            ->where('pi.id_packets','=',$the_packet->id)
+                            ->get();
+
+            return view('customer.detail_invoice')
+                    ->with('the_products',$data_products)
+                    ->with('the_packet',$the_packet)
+                    ->with('id_order_history',$id_order_history)
+                    ->with('total_price_order',$total_price_order)
+                    ->with('the_packet_img',$the_packet_img);
         } else {
             return redirect('/login');
         }
@@ -135,5 +159,67 @@ class HomeController extends Controller
 
     public function request_invoice() {
         return view('customer.detail_invoice');
+    }
+
+    public function request_admin(Request $request) {
+//        dd($request->id_order_history);
+
+        $the_product_orders = DB::table('transactions as t')
+            ->join('products as p', 'p.id','=','t.id_products')
+            ->where('t.id_order_history','=',$request->id_order_history)
+            ->select('p.title_product','p.unit_name','t.qty_order','t.total_price_order','t.id_packets')
+            ->get();
+
+        $the_packet = DB::table('packets as p')
+                ->where('p.id','=',$the_product_orders[0]->id_packets)
+                ->first();
+
+        $the_packet_img = DB::table('packet_images as pi')
+            ->where('pi.id_packets','=',$the_product_orders[0]->id_packets)
+            ->get();
+
+        $data_order = DB::table('order_history as o')
+                    ->where('o.id','=',$request->id_order_history)
+                    ->select('o.total_price_order','o.id_invoice')
+                    ->first();
+
+        DB::table('order_history as oh')
+            ->where('oh.id', $request->id_order_history)
+            ->update(['oh.id_status' => 2]);
+
+        return view('customer.success_order')
+                    ->with('the_product_orders',$the_product_orders)
+                    ->with('the_packet_img',$the_packet_img)
+                    ->with('data_order',$data_order)
+                    ->with('the_packet',$the_packet)
+                    ->with('id_order_history',$request->id_order_history);
+    }
+
+    public function chat_admin(Request $request) {
+
+        DB::table('order_history as oh')
+            ->where('oh.id', $request->id_order_history)
+            ->update(['oh.id_status' => 3]);
+
+        $order_history = DB::table('order_history as oh')
+                ->where('oh.id', $request->id_order_history)
+                ->first();
+
+        $the_product_orders = DB::table('transactions as t')
+            ->join('products as p', 'p.id','=','t.id_products')
+            ->where('t.id_order_history','=',$request->id_order_history)
+            ->select('p.title_product','p.unit_name','t.qty_order','t.total_price_order','t.id_packets')
+            ->get();
+
+        $the_packet = DB::table('packets as p')
+            ->where('p.id','=',$the_product_orders[0]->id_packets)
+            ->first();
+
+
+
+        $messages = 'Halo%20admin,%20saya%20'.Auth::user()->name.'%20sudah%20order%20di%20website:%20 *'.$the_packet->title_packet .
+            '* - No. Invoice: '.$order_history->id_invoice.' - Link pesanan: https://haula-toys.com/invoice/'.Auth::user()->id.'/'.$order_history->id_invoice.
+            ' - Mohon segera diproses. Terima Kasih.';
+        return Redirect::to('https://api.whatsapp.com/send?phone=6282121227019&text='.$messages);
     }
 }

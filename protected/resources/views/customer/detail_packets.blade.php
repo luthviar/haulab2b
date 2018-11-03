@@ -241,9 +241,10 @@
                                 </td>
                                 <td>
                                     <div class="form-check">
-                                        <input class="form-check-input produk_check" name="id_product[]" type="checkbox"
+                                        <input class="form-check-input produk_check" name="" type="checkbox"
                                                value="{{$the_products[$i]['data_product']->id}}" onchange="just_check();"
                                                id="check_product{{$j}}" checked>
+                                        <input name="id_product[]" value="{{$the_products[$i]['data_product']->id}}" hidden>
                                     </div>
                                 </td>
 
