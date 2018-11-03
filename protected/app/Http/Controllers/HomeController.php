@@ -161,8 +161,7 @@ class HomeController extends Controller
         return view('customer.detail_invoice');
     }
 
-    public function request_admin(Request $request) {
-//        dd($request->id_order_history);
+    public function request_to_admin(Request $request) {
 
         $the_product_orders = DB::table('transactions as t')
             ->join('products as p', 'p.id','=','t.id_products')
@@ -221,5 +220,58 @@ class HomeController extends Controller
             '* - No. Invoice: '.$order_history->id_invoice.' - Link pesanan: https://haula-toys.com/invoice/'.Auth::user()->id.'/'.$order_history->id_invoice.
             ' - Mohon segera diproses. Terima Kasih.';
         return Redirect::to('https://api.whatsapp.com/send?phone=6282121227019&text='.$messages);
+    }
+
+    public function view_by_invoice($id_user, $id_invoice){
+        $the_user = DB::table('users as u')
+            ->where('u.id',$id_user)
+            ->first();
+
+        $order_history = DB::table('order_history as oh')
+                ->where('oh.id_invoice',$id_invoice)
+                ->first();
+
+        $status = DB::table('ref_status_order_history as r')
+                ->where('r.id',$order_history->id_status)
+                ->first();
+
+        $the_product_orders = DB::table('transactions as t')
+            ->join('products as p', 'p.id','=','t.id_products')
+            ->where('t.id_invoice','=',$id_invoice)
+            ->select('p.title_product','p.unit_name','t.qty_order',
+                        't.total_price_order','t.id_packets','p.id','p.description_product','p.harga_satuan')
+            ->get();
+
+        $data_products = [];
+        for($i=0;$i<count($the_product_orders);$i++) {
+
+            $the_images = DB::table('product_images as pi')
+                ->where('pi.id_products','=',$the_product_orders[$i]->id)
+                ->get();
+
+            $products = array(
+                "data_product"  => $the_product_orders[$i],
+                "data_images"   => $the_images
+            );
+            array_push($data_products, $products);
+        }
+
+
+
+        $the_packet = DB::table('packets as p')
+            ->where('p.id','=',$the_product_orders[0]->id_packets)
+            ->first();
+
+        $the_packet_img = DB::table('packet_images as pi')
+            ->where('pi.id_packets','=',$the_product_orders[0]->id_packets)
+            ->get();
+
+        return view('customer.view_invoice')
+            ->with('the_packet',$the_packet)
+            ->with('data_products',$data_products)
+            ->with('order_history',$order_history)
+            ->with('the_user',$the_user)
+            ->with('status',$status)
+            ->with('the_packet_img',$the_packet_img);
     }
 }

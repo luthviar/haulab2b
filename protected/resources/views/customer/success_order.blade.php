@@ -141,7 +141,7 @@
 
 @section('new-scripts')
     <script>
-        window.onbeforeunload = function () {return false;}
+
         history.pushState(null, null, location.href);
         window.onpopstate = function () {
             history.go(1);

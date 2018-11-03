@@ -127,7 +127,7 @@
                                 </div>
 
                                 <div class="col-lg-6 offset-2 d-none d-sm-block">
-                                    <form method="post" action="{{ url(action('HomeController@request_admin')) }}">
+                                    <form method="get" action="{{ url(action('HomeController@request_to_admin')) }}">
                                         {{ csrf_field() }}
                                         <input name="id_order_history" value="{{ $id_order_history }}" hidden>
                                         <button type="submit" class="btn btn-success btn-block">

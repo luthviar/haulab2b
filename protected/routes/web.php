@@ -26,9 +26,12 @@ Route::get('/packet/request/{id}/{title}','HomeController@request_order');
 
 Route::get('/packet/request/invoice/{id}/{title}','HomeController@request_invoice');
 
-Route::post('packets/order/success','HomeController@request_admin');
+
+Route::get('packets/order/success/request','HomeController@request_to_admin');
 
 Route::post('packets/order/admin','HomeController@chat_admin');
+
+Route::get('invoice/{id_user}/{id_invoice}','HomeController@view_by_invoice');
 
 Route::get('packets',function () {
     return view('customer.detail_packets');

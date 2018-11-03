@@ -9,6 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
 
             <ul class="navbar-nav mr-auto">
+                @guest
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
@@ -16,11 +17,39 @@
                     <a class="nav-link" href="#">Company Profile</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Register</a>
+                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login</a>
+                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                 </li>
+
+                @else
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Company Profile</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">My Profile</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+{{--                            {{ __('Logout') }}--}}
+                            Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="">
+                            @csrf
+                        </form>
+
+                    </li>
+
+                    @endguest
+
+
 
             </ul>
             <form class="form-inline mt-2 mt-md-0">
