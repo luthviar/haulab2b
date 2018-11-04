@@ -1,5 +1,6 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+{{--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">--}}
+<meta name="viewport" content="width=device-width, user-scalable=false;">
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" href="{{ URL::asset('img/favicon.png') }}">
@@ -17,9 +18,6 @@
 <link href="{{ URL::asset('vendor/slick/slick-theme.css') }}" rel="stylesheet">
 
 <link rel="stylesheet" href="{{ URL::asset('vendor/font-awesome/css/font-awesome.min.css')}}" />
-
-<script src="{{ URL::asset('js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ URL::asset('js/bootstrap.min.js') }}"></script>
 
 <style>
     a {

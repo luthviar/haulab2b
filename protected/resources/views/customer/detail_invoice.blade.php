@@ -117,9 +117,14 @@
                                 <div class="col-lg-4">
                                     <br class="d-block d-sm-none"/> <br class="d-block d-sm-none"/> <br class="d-block d-sm-none"/>
                                     <div class="col-lg-6">
-                                        <a href="{{ redirect()->back() }}" class="btn btn-danger btn-block">
-                                            <i class="fa fa-arrow-circle-left"></i> Back
-                                        </a>
+                                        <form method="get" action="{{ url(action('HomeController@back_to_view_packet',[$the_packet->id,$the_packet->title_packet])) }}">
+                                            {{ csrf_field() }}
+                                            <input name="id_order_history" value="{{ $id_order_history }}" hidden>
+                                            <input name="id_packet" value="{{ $the_packet->id }}" hidden>
+                                            <button type="submit" class="btn btn-danger btn-block">
+                                                <i class="fa fa-arrow-circle-left"></i> Back
+                                            </button>
+                                        </form>
                                     </div>
                                     <small style="color: red;" class="text-left">
                                         Data Pesanan Anda akan hilang jika kembali ke halaman sebelumnya.
@@ -161,6 +166,13 @@
 
 @endsection
 
+@section('new-css')
+    <style>
+        nav {
+            visibility: hidden;
+        }
+    </style>
+@endsection
 
 @section('new-scripts')
     <script>

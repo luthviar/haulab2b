@@ -22,6 +22,8 @@ Route::get('/home', function (){
 
 Route::get('/packet/{id}/{title}','HomeController@view_packet');
 
+Route::get('/packet/{id_packet}/{title}/back','HomeController@back_to_view_packet');
+
 Route::get('/packet/request/{id}/{title}','HomeController@request_order');
 
 Route::get('/packet/request/invoice/{id}/{title}','HomeController@request_invoice');

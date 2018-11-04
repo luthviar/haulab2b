@@ -1,10 +1,10 @@
 <header>
-    <nav class="navbar navbar-expand-md navbar-default fixed-top bg-light">
+    <nav class="navbar navbar-expand-md navbar-default fixed-top bg-light navbar-light navbar-laravel">
         <a class="navbar-brand text-center" href="#">
             <img src="{{ URL::asset('img/favicon.png') }}" alt="logo" width="70%" height="100%">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-            <span style="background-color: #ababab!important;" class="navbar-toggler-icon"></span>
+            <span style="" class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
 
@@ -14,7 +14,7 @@
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Company Profile</a>
+                    <a class="nav-link" href="https://haula-toys.com" target="_blank">Company Profile</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -28,7 +28,7 @@
                         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Company Profile</a>
+                        <a class="nav-link" href="https://haula-toys.com" target="_blank">Company Profile</a>
                     </li>
 
                     <li class="nav-item">

@@ -85,6 +85,20 @@ class HomeController extends Controller
                 ->with('the_products',$data_products);
     }
 
+    public function back_to_view_packet($id_packet, $title_packet, Request $request) {
+
+
+        DB::table('order_history as oh')
+            ->where('oh.id', $request->id_order_history)
+            ->update(['oh.flag_active' => 0]);
+
+        DB::table('transactions as t')
+            ->where('t.id_order_history', $request->id_order_history)
+            ->update(['t.flag_active' => 0]);
+
+        return redirect(action('HomeController@view_packet',[$id_packet,$title_packet]));
+    }
+
     public function request_order(Request $request) {
 //        dd(Auth::user()->id);
         if (Auth::user()){
