@@ -194,7 +194,7 @@
                             <th class="text-nowrap"
                                 scope="col">Nama Produk</th>
                             <th scope="col">Deskripsi</th>
-                            <th class="text-nowrap" scope="col"> -- Qty -- </th>
+                            <th class="text-nowrap" scope="col"> --- Qty --- </th>
                             <th scope="col">Satuan</th>
                             <th scope="col">Harga</th>
                             <th scope="col" style="color: forestgreen;">Pilih</th>
@@ -451,8 +451,10 @@
 
                     document.getElementsByClassName("harga_satuan")[i].value = format1(0.0, 'Rp. ');
                     document.getElementsByClassName("qtyproduct")[i].value = 0;
+                    document.getElementsByClassName("qtyproduct")[i].readOnly  = true;
                     autosums_total_harga_tabel();
                 } else {
+                    document.getElementsByClassName("qtyproduct")[i].readOnly  = false;
                     document.getElementsByClassName("harga_satuan")[i].value = format1(harga_satuan_fix, 'Rp. ');
                     document.getElementsByClassName("qtyproduct")[i].value = 1;
                     autosums_total_harga_tabel();

@@ -3,13 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f8ddad61-66fc-41fc-b097-bf22378f37aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/RegisterController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/RegisterController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/auth/register.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/auth/register.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/layouts/head.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/layouts/head.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/routes/web.php" afterPath="$PROJECT_DIR$/protected/routes/web.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -46,16 +40,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1071">
               <caret line="67" column="38" lean-forward="false" selection-start-line="67" selection-start-column="38" selection-end-line="67" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="web.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="30" lean-forward="false" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
               <folding />
             </state>
           </provider>
@@ -113,12 +97,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="navbar.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="navbar.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="489">
+            <state relative-caret-position="-37">
               <caret line="30" column="109" lean-forward="false" selection-start-line="30" selection-start-column="109" selection-end-line="30" selection-end-column="109" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="detail_packets.blade.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="208">
+              <caret line="196" column="66" lean-forward="false" selection-start-line="196" selection-start-column="66" selection-end-line="196" selection-end-column="66" />
+              <folding>
+                <marker date="1541341951648" expanded="true" signature="21854:22209" ph="..." />
+                <marker date="1541341951648" expanded="true" signature="22250:22445" ph="..." />
+                <marker date="1541341951648" expanded="true" signature="22327:22433" ph="..." />
+                <marker date="1541341951648" expanded="true" signature="22476:23070" ph="..." />
+                <marker date="1541341951648" expanded="true" signature="23101:23743" ph="..." />
+                <marker date="1541341951648" expanded="true" signature="23237:23733" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,8 +128,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Anda</find>
-      <find>chat ad</find>
       <find>data_pro</find>
       <find>anda</find>
       <find>tagihan an</find>
@@ -136,7 +135,6 @@
       <find>rinci</find>
       <find>daftar</find>
       <find>qty</find>
-      <find>daftar</find>
       <find>qty_o</find>
       <find>checkbo</find>
       <find>total ha</find>
@@ -157,6 +155,9 @@
       <find>navbarCollapse</find>
       <find>redi</find>
       <find>compa</find>
+      <find>qtypro</find>
+      <find>just</find>
+      <find>qty -</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -180,7 +181,6 @@
         <option value="$PROJECT_DIR$/protected/.env" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/scripts.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/home.blade.php" />
-        <option value="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/success_order.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/view_invoice.blade.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/LoginController.php" />
@@ -191,6 +191,7 @@
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/head.blade.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/Auth/RegisterController.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" />
+        <option value="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
       </list>
     </option>
   </component>
@@ -668,12 +669,12 @@
       <workItem from="1540881098956" duration="11028000" />
       <workItem from="1541068850457" duration="37781000" />
       <workItem from="1541230937965" duration="22324000" />
-      <workItem from="1541340917277" duration="13000" />
+      <workItem from="1541340917277" duration="1061000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="84372000" />
+    <option name="totallyTimeSpent" value="85420000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
@@ -771,6 +772,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3077">
           <caret line="181" column="85" lean-forward="false" selection-start-line="181" selection-start-column="85" selection-end-line="181" selection-end-column="85" />
+          <folding>
+            <marker date="1541341951648" expanded="true" signature="21854:22209" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22250:22445" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22327:22433" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22476:23070" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="23101:23743" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="23237:23733" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -825,6 +834,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5355">
           <caret line="315" column="56" lean-forward="false" selection-start-line="315" selection-start-column="56" selection-end-line="315" selection-end-column="56" />
+          <folding>
+            <marker date="1541341951648" expanded="true" signature="21854:22209" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22250:22445" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22327:22433" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22476:23070" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="23101:23743" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="23237:23733" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -986,13 +1003,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="268" column="22" lean-forward="true" selection-start-line="187" selection-start-column="16" selection-end-line="268" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/protected/routes/web.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
@@ -1069,9 +1079,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="489">
+        <state relative-caret-position="-37">
           <caret line="30" column="109" lean-forward="false" selection-start-line="30" selection-start-column="109" selection-end-line="30" selection-end-column="109" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="196" column="66" lean-forward="false" selection-start-line="196" selection-start-column="66" selection-end-line="196" selection-end-column="66" />
+          <folding>
+            <marker date="1541341951648" expanded="true" signature="21854:22209" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22250:22445" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22327:22433" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="22476:23070" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="23101:23743" ph="..." />
+            <marker date="1541341951648" expanded="true" signature="23237:23733" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

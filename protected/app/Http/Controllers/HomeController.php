@@ -231,7 +231,7 @@ class HomeController extends Controller
 
 
         $messages = 'Halo%20admin,%20saya%20'.Auth::user()->name.'%20sudah%20order%20di%20website:%20 *'.$the_packet->title_packet .
-            '* - No. Invoice: '.$order_history->id_invoice.' - Link pesanan: https://haula-toys.com/invoice/'.Auth::user()->id.'/'.$order_history->id_invoice.
+            '* - No. Invoice: '.$order_history->id_invoice.' - Link pesanan: https://order.haula-toys.com/invoice/'.Auth::user()->id.'/'.$order_history->id_invoice.
             ' - Mohon segera diproses. Terima Kasih.';
         return Redirect::to('https://api.whatsapp.com/send?phone=6282121227019&text='.$messages);
     }
