@@ -149,7 +149,7 @@
                                             <th class="text-nowrap"
                                                 scope="col">Nama Produk</th>
                                             <th scope="col">Deskripsi</th>
-                                            <th class="text-nowrap" scope="col"> -- Qty -- </th>
+                                            <th class="text-nowrap" scope="col"> --- Qty --- </th>
                                             <th scope="col">Satuan</th>
                                             <th scope="col">Harga</th>
                                             <th scope="col" style="color: forestgreen;">Pilih</th>

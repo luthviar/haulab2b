@@ -1,11 +1,12 @@
-@extends('layouts.app')
+@extends('customer.layouts.app')
 
 @section('content')
+    <hr class="featurette-divider">
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="text-center card-header">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('login') }}" aria-label="{{ __('Login') }}">
@@ -52,10 +53,18 @@
                         </div>
 
                         <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-lg-6 offset-lg-4">
+
+                                <button type="submit" class="btn btn-primary btn-block pull-right">
                                     {{ __('Login') }}
                                 </button>
+                            </div>
+                        </div>
+                        <div class="form-group row mb-0">
+                            <div class="col-md-8 offset-lg-4">
+                                <a class="btn btn-link" href="{{ route('register') }}">
+                                    {{ __('Register') }}
+                                </a>
 
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
@@ -68,4 +77,5 @@
         </div>
     </div>
 </div>
+    <hr class="featurette-divider">
 @endsection

@@ -18,7 +18,7 @@
                     <div class="carousel-caption text-left bg-text">
                         <h1>Pesan mainan sekarang mudah!</h1>
                         <p>Haula Toys saat ini telah menerapkan teknologi website untuk para customer dari instansi manapun sehingga dapat mudah memesan dalam jumlah apapun dan kebutuhan apapun.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign Up</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="{{ route('register') }}" role="button">Sign Up</a></p>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                     <div class="carousel-caption text-right bg-text">
                         <h1>Ajukan kebutuhan Anda di sini!</h1>
                         <p>Haula Toys menerima apapun kebutuhan Anda untuk alat pendukung pendidikan anak. Beritahu kami melalui website ini dan kami akan melayaninya.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#" role="button">Hubungi Haula Toys</a></p>
+                        <p><a class="btn btn-lg btn-primary" href="https://haula-toys.com" role="button">Hubungi Haula Toys</a></p>
                     </div>
                 </div>
             </div>
@@ -226,11 +226,11 @@
 
         <div class="row featurette">
             <div class="col-md-7">
-                <h2 class="featurette-heading">Baca panduan pemesanan melalui website ini. <span class="text-muted">It'll blow your mind.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Panduan pemesanan melalui website ini.</h2>
+                <p class="lead">Pilih paket, atur pesanan, pilih tombol ajukan pesanan paket, lalu chat Admin. Semudah itu, lalu kami proses.</p>
             </div>
             <div class="col-md-5">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+                <img class="featurette-image img-fluid mx-auto" src="{{ URL::asset('img/icon-panduan.jpg') }}" alt="Generic placeholder image">
             </div>
         </div>
 
@@ -238,11 +238,12 @@
 
         <div class="row featurette">
             <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Ajukan kebutuhan Anda dengan mengisi formulir RFQ. <span class="text-muted">di sini.</span></h2>
-                <p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+                <h2 class="featurette-heading">Ajukan kebutuhan Anda dengan mengisi formulir RFQ. </h2>
+                <p class="lead">Kirim pesanan custom Anda bisa melalui website ini dengan mengirim pesan pada halaman utama <a href="https://haula-toys.com" target="_blank">website haula</a> atau chat whatsapp Admin dengan cara <a href="http://bit.ly/wahaulaviaweb" target="_blank">klik di sini.</a></p>
             </div>
             <div class="col-md-5 order-md-1">
-                <img class="featurette-image img-fluid mx-auto" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+                <img class="featurette-image img-fluid mx-auto" src="{{ URL::asset('img/icon-rfq.jpg') }}" alt="Generic placeholder image">
+                {{--<i class="fa fa-sticky-note"></i>--}}
             </div>
         </div>
 
