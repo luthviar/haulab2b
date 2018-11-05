@@ -30,11 +30,33 @@ class HomeController extends Controller
         $list_packets = DB::table('packets as p')
                         ->join('packet_images as pi', 'pi.id_packets', '=', 'p.id')
                         ->select('p.*', 'pi.*')
+                        ->where('p.flag_active',1)
                         ->get();
-//        dd($list_packets);
+
+        $the_packets = DB::table('packets as p')
+            ->where('p.flag_active',1)
+            ->get();
+
+        $data_packets = [];
+        foreach ($the_packets as $packet) {
+            $the_packet = DB::table('packets as p')
+                ->where('p.id','=',$packet->id)
+                ->first();
+
+            $the_images = DB::table('packet_images as pi')
+                ->where('pi.id_packets','=',$the_packet->id)
+                ->first();
+
+            $packets = array(
+                "data_packet"  => $the_packet,
+                "data_image"   => $the_images
+            );
+            array_push($data_packets, $packets);
+        }
+
 
         return view('customer.home')
-                ->with('list_packets',$list_packets);
+                ->with('data_packets',$data_packets);
     }
 
     public function view_packet($id) {

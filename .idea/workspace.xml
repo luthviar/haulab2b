@@ -4,14 +4,7 @@
     <list default="true" id="f8ddad61-66fc-41fc-b097-bf22378f37aa" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/detail_invoice.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/home.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/home.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/layouts/footer.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/layouts/footer.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/success_order.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/success_order.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/resources/views/customer/view_invoice.blade.php" afterPath="$PROJECT_DIR$/protected/resources/views/customer/view_invoice.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/protected/routes/web.php" afterPath="$PROJECT_DIR$/protected/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -47,7 +40,7 @@
         <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/view_invoice.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1722">
-              <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+              <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
               <folding>
                 <element signature="e#7628#7655#0#HTML" expanded="true" />
                 <marker date="1541421158136" expanded="false" signature="4790:4801" ph="..." />
@@ -59,8 +52,8 @@
       <file leaf-file-name="home.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/home.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="502">
-              <caret line="130" column="32" lean-forward="false" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
+            <state relative-caret-position="182">
+              <caret line="192" column="38" lean-forward="false" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -90,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
-              <caret line="37" column="86" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="86" />
+              <caret line="37" column="86" lean-forward="false" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="86" />
               <folding>
                 <marker date="1541419742225" expanded="true" signature="23373:23568" ph="..." />
                 <marker date="1541419742225" expanded="true" signature="23450:23556" ph="..." />
@@ -105,8 +98,8 @@
       <file leaf-file-name="HomeController.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4934">
-              <caret line="312" column="34" lean-forward="false" selection-start-line="312" selection-start-column="29" selection-end-line="312" selection-end-column="34" />
+            <state relative-caret-position="424">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -126,7 +119,7 @@
         <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/layouts/footer.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+              <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
               <folding>
                 <element signature="e#120#126#0#HTML" expanded="true" />
               </folding>
@@ -138,8 +131,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>sign up</find>
-      <find>whatsa</find>
       <find>http://bit.ly/2OyfJaK</find>
       <find>ajukan pe</find>
       <find>total ord</find>
@@ -168,6 +159,8 @@
       <find>ajuka</find>
       <find>rfq</find>
       <find>https</find>
+      <find>title_pa</find>
+      <find>list_p</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -200,9 +193,9 @@
         <option value="$PROJECT_DIR$/protected/resources/views/customer/view_invoice.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/success_order.blade.php" />
-        <option value="$PROJECT_DIR$/protected/resources/views/customer/home.blade.php" />
         <option value="$PROJECT_DIR$/protected/resources/views/customer/layouts/navbar.blade.php" />
         <option value="$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php" />
+        <option value="$PROJECT_DIR$/protected/resources/views/customer/home.blade.php" />
       </list>
     </option>
   </component>
@@ -680,15 +673,16 @@
       <workItem from="1540881098956" duration="11028000" />
       <workItem from="1541068850457" duration="37781000" />
       <workItem from="1541230937965" duration="22324000" />
-      <workItem from="1541340917277" duration="14110000" />
+      <workItem from="1541340917277" duration="15426000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="98469000" />
+    <option name="totallyTimeSpent" value="99785000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1401919" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1033,7 +1027,7 @@
     <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/layouts/footer.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <caret line="5" column="8" lean-forward="false" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
           <folding>
             <element signature="e#120#126#0#HTML" expanded="true" />
           </folding>
@@ -1059,7 +1053,7 @@
     <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/view_invoice.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1722">
-          <caret line="112" column="0" lean-forward="true" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
+          <caret line="112" column="0" lean-forward="false" selection-start-line="112" selection-start-column="0" selection-end-line="112" selection-end-column="0" />
           <folding>
             <element signature="e#7628#7655#0#HTML" expanded="true" />
             <marker date="1541421158136" expanded="false" signature="4790:4801" ph="..." />
@@ -1086,7 +1080,7 @@
     <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/detail_packets.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
-          <caret line="37" column="86" lean-forward="true" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="86" />
+          <caret line="37" column="86" lean-forward="false" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="86" />
           <folding>
             <marker date="1541419742225" expanded="true" signature="23373:23568" ph="..." />
             <marker date="1541419742225" expanded="true" signature="23450:23556" ph="..." />
@@ -1094,14 +1088,6 @@
             <marker date="1541419742225" expanded="true" signature="24333:25085" ph="..." />
             <marker date="1541419742225" expanded="true" signature="24469:25075" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/home.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="502">
-          <caret line="130" column="32" lean-forward="false" selection-start-line="130" selection-start-column="32" selection-end-line="130" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1113,10 +1099,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/protected/resources/views/customer/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="182">
+          <caret line="192" column="38" lean-forward="false" selection-start-line="192" selection-start-column="38" selection-end-line="192" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/protected/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4934">
-          <caret line="312" column="34" lean-forward="false" selection-start-line="312" selection-start-column="29" selection-end-line="312" selection-end-column="34" />
+        <state relative-caret-position="424">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding />
         </state>
       </provider>

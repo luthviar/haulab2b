@@ -125,55 +125,55 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="card-deck slick-products">
-                    @foreach($list_packets as $packet)
+                    @foreach($data_packets as $packet)
                         <div class="card">
-                            <a href="{{ url('packet/'.$packet->id .'/' .$packet->title_packet) }}">
-                                <img class="card-img-top" src="{{ url($packet->img_url_packet) }}"
+                            <a href="{{ url('packet/'.$packet['data_packet']->id .'/' .$packet['data_packet']->title_packet) }}">
+                                <img class="card-img-top" src="{{ url($packet['data_image']->img_url_packet) }}"
                                  alt="Card image cap" height="100%" width="100%">
                             </a>
                             <div class="card-body">
                                 <h5 class="card-title">
-                                    <a href="{{ url('/packet/'.$packet->id .'/' .$packet->title_packet) }}">
-                                        {{ $packet->title_packet }}
+                                    <a href="{{ url('/packet/'.$packet['data_packet']->id .'/' .$packet['data_packet']->title_packet) }}">
+                                        {{ $packet['data_packet']->title_packet }}
                                     </a>
                                 </h5>
                                 <p class="card-text" style="color: red;">
                                     <strong>Rp.
-                                        <span id="harga_paket_{{$packet->id}}">
-                                            {{ number_format($packet->total_price_packet, 0, '', '.') }}
+                                        <span id="harga_paket_{{$packet['data_packet']->id}}">
+                                            {{ number_format($packet['data_packet']->total_price_packet, 0, '', '.') }}
                                         </span>
                                     </strong><br/>
-                                    <small class="text-muted" style="color: red!important;">Per <span id="qtychange{{$packet->id}}"></span> paket</small>
-                                    <input hidden id="harga_paket_fix_{{$packet->id}}" value="{{ $packet->total_price_packet }}">
+                                    <small class="text-muted" style="color: red!important;">Per <span id="qtychange{{$packet['data_packet']->id}}"></span> paket</small>
+                                    <input hidden id="harga_paket_fix_{{$packet['data_packet']->id}}" value="{{ $packet['data_packet']->total_price_packet }}">
 
                                 </p>
                                 <p class="card-text">
-                                    {{ $packet->description_packet }}
+                                    {{ $packet['data_packet']->description_packet }}
                                 </p>
-                                <a href="{{ url('packet/'.$packet->id .'/' .$packet->title_packet) }}" class="btn btn-success btn-block">
+                                <a href="{{ url('packet/'.$packet['data_packet']->id .'/' .$packet['data_packet']->title_packet) }}" class="btn btn-success btn-block">
                                     <i class="fa fa-list-ul"></i> Lihat Rincian Produk
                                 </a>
                                 <br/>
                                 <div class="input-group mb-2">
                                     <div class="input-group-prepend">
-                                        <button onclick="dec_qty{{$packet->id}}()" class="input-group-btn btn btn-outline-danger">-</button>
+                                        <button onclick="dec_qty{{$packet['data_packet']->id}}()" class="input-group-btn btn btn-outline-danger">-</button>
                                         {{--<div class="input-group-text">-</div>--}}
                                     </div>
                                     <input type="text"
-                                           class="form-control text-center" id="qty_paket_{{$packet->id}}"
-                                           onchange="autosums_total_paket{{$packet->id}}()"
+                                           class="form-control text-center" id="qty_paket_{{$packet['data_packet']->id}}"
+                                           onchange="autosums_total_paket{{$packet['data_packet']->id}}()"
                                            min="1"
                                            value="1">
                                     <div class="input-group-append">
-                                        <button onclick="inc_qty{{$packet->id}}();" class="input-group-btn btn btn-outline-primary">+</button>
+                                        <button onclick="inc_qty{{$packet['data_packet']->id}}();" class="input-group-btn btn btn-outline-primary">+</button>
                                     </div>
                                 </div>
 
-                                <form method="get" action="{{ url(action('HomeController@request_order_by_packet',[$packet->id,$packet->title_packet])) }}">
+                                <form method="get" action="{{ url(action('HomeController@request_order_by_packet',[$packet['data_packet']->id,$packet['data_packet']->title_packet])) }}">
                                     {{ csrf_field() }}
-                                    <input name="qty_packet" id="qty_packet_input{{$packet->id}}" value="1" type="hidden">
-                                    <input name="id_packet" value="{{$packet->id}}" hidden>
-                                    <input name="total_price_packet" value="{{$packet->total_price_packet}}" hidden>
+                                    <input name="qty_packet" id="qty_packet_input{{$packet['data_packet']->id}}" value="1" type="hidden">
+                                    <input name="id_packet" value="{{$packet['data_packet']->id}}" hidden>
+                                    <input name="total_price_packet" value="{{$packet['data_packet']->total_price_packet}}" hidden>
                                     <button type="submit"
                                             class="btn btn-primary btn-block card-link">
                                         Ajukan Pesanan Paket
@@ -190,58 +190,58 @@
 
                 </div>
 
-                @foreach($list_packets as $packet)
+                @foreach($data_packets as $packet)
                     <script>
-                        function inc_qty{{$packet->id}}() {
-                            var qty1 = document.getElementById('qty_paket_{{$packet->id}}').value;
+                        function inc_qty{{$packet['data_packet']->id}}() {
+                            var qty1 = document.getElementById('qty_paket_{{$packet['data_packet']->id}}').value;
                             var qty2 = parseInt(qty1);
                             var increment_qty = qty2 + 1;
 
-                            document.getElementById('qty_paket_{{$packet->id}}').value = increment_qty;
+                            document.getElementById('qty_paket_{{$packet['data_packet']->id}}').value = increment_qty;
 
-                            var str1 = document.getElementById("harga_paket_fix_{{$packet->id}}").value;
+                            var str1 = document.getElementById("harga_paket_fix_{{$packet['data_packet']->id}}").value;
 //                            var str1change = str1.replace(/\./g,'');
 
                             var harga_paket_1 = parseInt(str1);
                             var total_harga_paket_1 = harga_paket_1 * increment_qty;
 
-                            document.getElementById("qty_packet_input{{$packet->id}}").value = qty1;
-                            document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
-                            document.getElementById("qtychange{{$packet->id}}").innerHTML = increment_qty;
+                            document.getElementById("qty_packet_input{{$packet['data_packet']->id}}").value = qty1;
+                            document.getElementById("harga_paket_{{$packet['data_packet']->id}}").innerHTML = format1(total_harga_paket_1, ' ');
+                            document.getElementById("qtychange{{$packet['data_packet']->id}}").innerHTML = increment_qty;
                         }
 
-                        function dec_qty{{$packet->id}}() {
-                            var qty1 = document.getElementById('qty_paket_{{$packet->id}}').value;
+                        function dec_qty{{$packet['data_packet']->id}}() {
+                            var qty1 = document.getElementById('qty_paket_{{$packet['data_packet']->id}}').value;
                             var qty2 = parseInt(qty1);
                             if (qty2 > 1) {
                                 var decrement_qty = qty2 - 1;
 
 
-                                document.getElementById('qty_paket_{{$packet->id}}').value = decrement_qty;
+                                document.getElementById('qty_paket_{{$packet['data_packet']->id}}').value = decrement_qty;
 
-                                var str1 = document.getElementById("harga_paket_fix_{{$packet->id}}").value;
+                                var str1 = document.getElementById("harga_paket_fix_{{$packet['data_packet']->id}}").value;
 //                                var str1change = str1.replace(/\./g,'');
 
                                 var harga_paket_1 = parseInt(str1);
 
                                 var total_harga_paket_1 = harga_paket_1 * decrement_qty;
 
-                                document.getElementById("qty_packet_input{{$packet->id}}").value = qty1;
-                                document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
-                                document.getElementById("qtychange{{$packet->id}}").innerHTML = decrement_qty;
+                                document.getElementById("qty_packet_input{{$packet['data_packet']->id}}").value = qty1;
+                                document.getElementById("harga_paket_{{$packet['data_packet']->id}}").innerHTML = format1(total_harga_paket_1, ' ');
+                                document.getElementById("qtychange{{$packet['data_packet']->id}}").innerHTML = decrement_qty;
                             }
                         }
 
-                        function autosums_total_paket{{$packet->id}}() {
+                        function autosums_total_paket{{$packet['data_packet']->id}}() {
 
-                            var harga_paket_1 = document.getElementById("harga_paket_fix_{{$packet->id}}").value;
-                            var qty_paket_1 = document.getElementById("qty_paket_{{$packet->id}}").value;
+                            var harga_paket_1 = document.getElementById("harga_paket_fix_{{$packet['data_packet']->id}}").value;
+                            var qty_paket_1 = document.getElementById("qty_paket_{{$packet['data_packet']->id}}").value;
                             var total_harga_paket_1 = harga_paket_1 * qty_paket_1;
 
-                            document.getElementById("qty_packet_input{{$packet->id}}").value = qty_paket_1;
+                            document.getElementById("qty_packet_input{{$packet['data_packet']->id}}").value = qty_paket_1;
 
-                            document.getElementById("qtychange{{$packet->id}}").innerHTML = qty_paket_1;
-                            document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
+                            document.getElementById("qtychange{{$packet['data_packet']->id}}").innerHTML = qty_paket_1;
+                            document.getElementById("harga_paket_{{$packet['data_packet']->id}}").innerHTML = format1(total_harga_paket_1, ' ');
 
                         }
                     </script>
