@@ -181,7 +181,7 @@
                                                 <td>{{$data_products[$i]['data_product']->unit_name}}</td>
                                                 <td class="text-nowrap">
                                                     <input type="text" class="form-control harga_satuan" name="harga_satuan[]" readonly
-                                                           value="Rp. {{number_format($data_products[$i]['data_product']->harga_satuan, 0, '', '.')}}"
+                                                           value="Rp. {{number_format($data_products[$i]['data_product']->total_price_order, 0, '', '.')}}"
                                                     >
 
                                                     <h3 style="visibility: hidden;"

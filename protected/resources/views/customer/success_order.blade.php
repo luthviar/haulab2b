@@ -49,6 +49,9 @@
                                                 <img class="card-img-top" src="{{ $data->img_url_packet }}"
                                                      alt="Card image cap" height="100%" width="100%">
                                             </a>
+                                            <p>
+                                                <small>(Klik gambar untuk memperbesar)</small>
+                                            </p>
                                         </div>
                                     @endforeach
 
@@ -220,4 +223,12 @@
         });
 
     </script>
+@endsection
+
+@section('new-css')
+    <style>
+        nav {
+            visibility: hidden;
+        }
+    </style>
 @endsection

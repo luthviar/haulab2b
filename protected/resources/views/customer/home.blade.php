@@ -127,9 +127,10 @@
                 <div class="card-deck slick-products">
                     @foreach($list_packets as $packet)
                         <div class="card">
-                            <img class="card-img-top" src="{{ url($packet->img_url_packet) }}"
+                            <a href="{{ url('packet/'.$packet->id .'/' .$packet->title_packet) }}">
+                                <img class="card-img-top" src="{{ url($packet->img_url_packet) }}"
                                  alt="Card image cap" height="100%" width="100%">
-
+                            </a>
                             <div class="card-body">
                                 <h5 class="card-title">
                                     <a href="{{ url('/packet/'.$packet->id .'/' .$packet->title_packet) }}">
@@ -160,14 +161,27 @@
                                     </div>
                                     <input type="text"
                                            class="form-control text-center" id="qty_paket_{{$packet->id}}"
+                                           onchange="autosums_total_paket{{$packet->id}}()"
                                            min="1"
                                            value="1">
                                     <div class="input-group-append">
                                         <button onclick="inc_qty{{$packet->id}}();" class="input-group-btn btn btn-outline-primary">+</button>
                                     </div>
                                 </div>
-                                <a href="{{ url('packet/order/'.$packet->id.'/'  .$packet->title_packet) }}"
-                                   class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>
+
+                                <form method="get" action="{{ url(action('HomeController@request_order_by_packet',[$packet->id,$packet->title_packet])) }}">
+                                    {{ csrf_field() }}
+                                    <input name="qty_packet" id="qty_packet_input{{$packet->id}}" value="1" type="hidden">
+                                    <input name="id_packet" value="{{$packet->id}}" hidden>
+                                    <input name="total_price_packet" value="{{$packet->total_price_packet}}" hidden>
+                                    <button type="submit"
+                                            class="btn btn-primary btn-block card-link">
+                                        Ajukan Pesanan Paket
+                                    </button>
+
+                                </form>
+                                {{--<a href="{{ url('packet/order/'.$packet->id.'/'  .$packet->title_packet) }}"--}}
+                                   {{--class="btn btn-primary btn-block">Ajukan Pesanan Paket</a>--}}
                                 {{--<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>--}}
 
                             </div>
@@ -191,6 +205,7 @@
                             var harga_paket_1 = parseInt(str1);
                             var total_harga_paket_1 = harga_paket_1 * increment_qty;
 
+                            document.getElementById("qty_packet_input{{$packet->id}}").value = qty1;
                             document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
                             document.getElementById("qtychange{{$packet->id}}").innerHTML = increment_qty;
                         }
@@ -211,9 +226,23 @@
 
                                 var total_harga_paket_1 = harga_paket_1 * decrement_qty;
 
+                                document.getElementById("qty_packet_input{{$packet->id}}").value = qty1;
                                 document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
                                 document.getElementById("qtychange{{$packet->id}}").innerHTML = decrement_qty;
                             }
+                        }
+
+                        function autosums_total_paket{{$packet->id}}() {
+
+                            var harga_paket_1 = document.getElementById("harga_paket_fix_{{$packet->id}}").value;
+                            var qty_paket_1 = document.getElementById("qty_paket_{{$packet->id}}").value;
+                            var total_harga_paket_1 = harga_paket_1 * qty_paket_1;
+
+                            document.getElementById("qty_packet_input{{$packet->id}}").value = qty_paket_1;
+
+                            document.getElementById("qtychange{{$packet->id}}").innerHTML = qty_paket_1;
+                            document.getElementById("harga_paket_{{$packet->id}}").innerHTML = format1(total_harga_paket_1, ' ');
+
                         }
                     </script>
                 @endforeach

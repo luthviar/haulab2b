@@ -39,6 +39,10 @@
                                     <img class="card-img-top" src="{{ $data->img_url_packet }}"
                                          alt="Card image cap" height="100%" width="100%">
                                 </a>
+                                <p>
+                                    Gambar {{$the_packet->title_packet}} <br/>
+                                    <small>(Klik gambar untuk memperbesar)</small>
+                                </p>
                             </div>
                         @endforeach
                         {{--end of paket 1--}}
@@ -68,10 +72,11 @@
 
                             <hr class="featurette-divider">
 
+
                             <div class="row">
                                 <div class="col-lg-2">
                                     <h6 class="text-center">
-                                        Total order
+                                        Total order <small>Qty Paket</small>
                                     </h6>
                                 </div>
                                 <div class="col-lg-3">
@@ -104,8 +109,17 @@
                                 </div>
                             </div>
 
-                            <a href="#ajukanpesanan1" class="btn btn-primary btn-block card-link">Ajukan Pesanan Paket</a>
+                            <form method="get" action="{{ url(action('HomeController@request_order_by_packet',[$the_packet->id,$the_packet->title_packet])) }}">
+                                {{ csrf_field() }}
+                                <input name="qty_packet" id="qty_packet_input" value="1" type="hidden">
+                                <input name="id_packet" value="{{$the_packet->id}}" hidden>
+                                <input name="total_price_packet" value="{{$the_packet->total_price_packet}}" hidden>
+                            <button type="submit"
+                                    class="btn btn-primary btn-block card-link">
+                                Ajukan Pesanan Paket <br class="d-block d-sm-none"/> Berdasarkan Qty Paket
+                            </button>
 
+                            </form>
 
 
                         </div>
@@ -268,12 +282,12 @@
                     </table>
                 </div>
 
-                <div class="col-lg-4 offset-8 d-none d-sm-block">
-                    <button type="submit" id="ajukanpesanan1" class="btn btn-primary btn-block">Ajukan Pesanan Paket</button>
+                <div class="col-lg-5 offset-7 d-none d-sm-block">
+                    <button type="submit" id="ajukanpesanan" class="btn btn-info btn-block">Ajukan Pesanan Berdasarkan Qty Produk</button>
 
                 </div>
                 <div class="col-lg-12 d-block d-sm-none">
-                    <button type="submit" id="ajukanpesanan2" class="btn btn-primary btn-block">Ajukan Pesanan Paket</button>
+                    <button type="submit" id="ajukanpesanan" class="btn btn-info btn-block">Ajukan Pesanan Paket <br/> Berdasarkan Qty Produk</button>
                 </div>
 
             </div>
@@ -467,6 +481,7 @@
             var qty_paket_1 = document.getElementById("qty_paket_1").value;
             var total_harga_paket_1 = harga_paket_1 * qty_paket_1;
 
+            document.getElementById("qty_packet_input").value = document.getElementById("qty_paket_1").value;
 
             document.getElementById("total_harga_paket_1").innerHTML = format1(total_harga_paket_1, ' ');
 
@@ -489,7 +504,7 @@
 
             var harga_paket_1 = parseInt(str1change);
             var total_harga_paket_1 = harga_paket_1 * increment_qty;
-
+            document.getElementById("qty_packet_input").value = document.getElementById("qty_paket_1").value;
             document.getElementById("total_harga_paket_1").innerHTML = format1(total_harga_paket_1, ' ');
         }
 
@@ -509,6 +524,7 @@
 
             var total_harga_paket_1 = harga_paket_1 * decrement_qty;
 
+            document.getElementById("qty_packet_input").value = document.getElementById("qty_paket_1").value;
             document.getElementById("total_harga_paket_1").innerHTML = format1(total_harga_paket_1, ' ');
             }
         }

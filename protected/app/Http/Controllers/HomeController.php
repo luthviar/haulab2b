@@ -171,6 +171,83 @@ class HomeController extends Controller
         }
     }
 
+    public function request_order_by_packet(Request $request) {
+//        dd($request->qty_packet);
+
+
+        if (Auth::user()){
+            // invoice : INV + CARBONTIMESTAMP + id_packet + 00 + id_pembeli
+            $invoice = 'INV'.Carbon::now()->timestamp.$request->id_packets.'00'.Auth::user()->id;
+            $total_price_order = (int) $request->total_price_packet * $request->qty_packet;
+
+            $the_product_order = DB::table('products as p')
+                ->where('p.id_packets',$request->id_packet)
+                ->get();
+
+//            dd(count($the_product_order[0]->qty));
+            $id_order_history = DB::table('order_history')->insertGetId(
+                [
+                    'id_invoice' => $invoice,
+                    'total_price_order' => $total_price_order,
+                    'created_by' => Auth::user()->id,
+                    'updated_by' => Auth::user()->id,
+                    'id_status' => 1,
+                    'flag_active' => 1,
+                ]
+            );
+
+
+            $data_products = array();
+            for($j=0;$j<count($the_product_order);$j++) {
+
+                $qty_the_product_order = $the_product_order[$j]->qty * (int)$request->qty_packet;
+
+                $total_price_the_product_order = $the_product_order[$j]->harga_satuan * $qty_the_product_order;
+
+
+                $id_transactions = DB::table('transactions')->insertGetId(
+                    [
+                        'id_invoice' => $invoice,
+                        'id_order_history' => $id_order_history,
+                        'id_pembeli' => Auth::user()->id,
+                        'id_packets' => $request->id_packet,
+                        'id_products' => $the_product_order[$j]->id,
+                        'flag_active' => 1,
+                        'qty_order' => $qty_the_product_order,
+                        'total_price_order' => $total_price_the_product_order
+                    ]
+                );
+
+                $the_product_orders = DB::table('transactions as t')
+                    ->join('products as p', 'p.id','=','t.id_products')
+                    ->where('t.id','=',$id_transactions)
+                    ->select('p.title_product','p.unit_name','t.qty_order','t.total_price_order')
+                    ->first();
+
+                $data_products[] = $the_product_orders;
+
+            } //end for qty paket
+
+
+            $the_packet = DB::table('packets as p')
+                ->where('p.id','=',$request->id_packet)
+                ->first();
+
+            $the_packet_img = DB::table('packet_images as pi')
+                ->where('pi.id_packets','=',$the_packet->id)
+                ->get();
+
+            return view('customer.detail_invoice')
+                ->with('the_products',$data_products)
+                ->with('the_packet',$the_packet)
+                ->with('id_order_history',$id_order_history)
+                ->with('total_price_order',$total_price_order)
+                ->with('the_packet_img',$the_packet_img);
+        } else {
+            return redirect('/login');
+        }
+    }
+
     public function request_invoice() {
         return view('customer.detail_invoice');
     }
@@ -231,7 +308,7 @@ class HomeController extends Controller
 
 
         $messages = 'Halo%20admin,%20saya%20'.Auth::user()->name.'%20sudah%20order%20di%20website:%20 *'.$the_packet->title_packet .
-            '* - No. Invoice: '.$order_history->id_invoice.' - Link pesanan: https://order.haula-toys.com/invoice/'.Auth::user()->id.'/'.$order_history->id_invoice.
+            '* - No. Invoice: '.$order_history->id_invoice.' - Link pesanan: http://order.haula-toys.com/invoice/'.Auth::user()->id.'/'.$order_history->id_invoice.
             ' - Mohon segera diproses. Terima Kasih.';
         return Redirect::to('https://api.whatsapp.com/send?phone=6282121227019&text='.$messages);
     }

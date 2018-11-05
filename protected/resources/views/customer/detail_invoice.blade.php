@@ -41,7 +41,10 @@
                             <div class="card">
                                 <img class="card-img-top" src="{{ $data->img_url_packet }}"
                                      alt="Card image cap" height="100%" width="100%">
-
+                                <p>
+                                    Gambar {{$the_packet->title_packet}} <br/>
+                                    <small>(Klik gambar untuk memperbesar)</small>
+                                </p>
                             </div>
                             {{--end of paket 2--}}
                         @endforeach
@@ -108,10 +111,14 @@
                                 </div>
 
                                 <div class="col-lg-12 d-block d-sm-none">
-                                    <a href="/packets/order/success" class="btn btn-success btn-block">
+                                    <form method="get" action="{{ url(action('HomeController@request_to_admin')) }}">
+                                        {{ csrf_field() }}
+                                        <input name="id_order_history" value="{{ $id_order_history }}" hidden>
+                                        <button type="submit" class="btn btn-success btn-block">
                                         <i class="fa fa-send"></i>
                                         Lanjutkan tahap berikutnya
-                                    </a>
+                                        </button>
+                                    </form>
                                 </div>
 
                                 <div class="col-lg-4">
